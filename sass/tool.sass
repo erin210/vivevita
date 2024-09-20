@@ -1,0 +1,117 @@
+// 主色
+$Main-color: #2690C1
+// 輔著色
+$Secondary-coloring: #E6F0F4
+// 配色
+$Sup-color: #76716F
+// 黑
+$black: #000000
+//白
+$White: #ffffff
+
+    
+//限制內容字數 -webkit-line-clamp: 8
+@mixin ellipsis
+    overflow: hidden
+    text-overflow: ellipsis
+    display: -webkit-box
+    -webkit-box-orient: vertical
+// 漸變效果時間
+@mixin hover-transition
+    -webkit-transition: all 0.30s ease-in-out
+    -moz-transition: all 0.30s ease-in-out
+    -ms-transition: all 0.30s ease-in-out
+    -o-transition: all 0.30s ease-in-out
+
+//圖片致中-DIV 第一層(height: 350px 高度要自己加)
+@mixin imgdiv
+    width: 100%
+    position: relative
+    overflow: hidden
+//圖片致中-DIV 第一層( padding-bottom: 56.25% 推比例)
+@mixin imgdiv-padding
+    width: 100%
+    position: relative
+    height: 0
+    overflow: hidden
+//圖片致中-DIV 第二層
+@mixin imgimg
+    max-height: 100%
+    max-width: 100%
+    width: auto
+    height: auto
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    margin: auto
+    transition: transform .2s, -webkit-transform .2s
+//圖片致中-DIV 第二層(寬不等比縮)
+@mixin imgimg01
+    max-height: 100%
+    width: auto
+    height: auto
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    margin: auto
+    transition: transform .2s, -webkit-transform .2s
+//圖片致中-DIV 第二層(高不等比縮)
+@mixin imgimg02
+    max-width: 100%
+    width: auto
+    height: auto
+    position: absolute
+    top: 0
+    bottom: 0
+    left: 0
+    right: 0
+    margin: auto
+    transition: transform .2s, -webkit-transform .2s
+//多個垂直致中
+@mixin imgdivs
+    position: relative
+    display: block
+    overflow: hidden
+    cursor: pointer
+//多個垂直致中(自訂高度 height: 200px;)
+@mixin imgimgs
+    width: 100%
+    display: block
+    -o-object-fit: cover
+    object-fit: cover
+// d-flex
+@mixin d-flex
+    display: flex
+    flex-wrap: wrap
+// 致中
+@mixin absolute-center
+    position: absolute
+    top: 50%
+    left: 50%
+    transform: translate(-50%, -50%) 
+
+@mixin imgbox
+    cursor: pointer
+    position: relative
+    display: block
+    overflow: hidden
+    height: 0
+    width: 100%
+@mixin imgbox2    
+    width: 100%
+    display: block
+    -o-object-fit: cover
+    object-fit: cover
+    top: 50%
+    left: 50%
+    position: absolute
+    -webkit-transform: translate(-50%, -50%)
+    transform: translate(-50%, -50%)
+    -webkit-transition: all 0.30s ease-in-out
+    -moz-transition: all 0.30s ease-in-out
+    -ms-transition: all 0.30s ease-in-out
+    -o-transition: all 0.30s ease-in-out    

@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Anthogenol®月光寶盒</title>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-T2LGN669');</script>
+    <!-- End Google Tag Manager -->
+    <!-- SEO -->
+    <meta name="author" content="VIVEVITA">
+    <meta name="copyright" content="VIVEVITA">
+    <meta name="description" content="Anthogenol®月光寶盒">
+    <meta name="keyword" content="Anthogenol®月光寶盒">
+    <meta property="og:title" content="Anthogenol®月光寶盒">
+    <meta property="og:url" content="http://www.example.com/">
+    <meta property="og:image" content="http://example.com/image.jpg">
+    <meta property="og:description" content="Anthogenol®月光寶盒">
+    <!--標籤上的 icon-->
+    <link rel="icon" href="favicon.png">
+    <link rel="icon" href="favicon.ico?v=1.1">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+    <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+    <!-- css -->
+    <link rel="stylesheet" href="css/menu.css">
+    <link rel='stylesheet' href="css/left-menu.css">
+    <link rel="stylesheet" type="text/css" href="css/preset.css">
+    <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+    <!-- 動畫 -->
+    <link rel="stylesheet" href="css/animate.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+    <!-- 輪播 -->
+    <link rel='stylesheet' href="css/swiper.min.css">
+</head>
+
+<body>
+    <header class="header-area wow fadeInDown"></header>
+    <main>
+        <!-- BANNER-->
+        <article class="page-banner wow fadeInDown" data-wow-offset="1" data-wow-duration="0.7s" data-wow-delay="0.7s">
+            <section class="container">
+                <div class="p-title">
+                    <div class="news-detail-title">
+                        <!-- 日期 -->
+                        <div class="time">
+                            <span id="POST_DATE"></span>
+                            <span>｜</span>
+                            <span>BLOG</span>
+                        </div>
+                        <!-- 標題 -->
+                        <h2 id="POST_TITLE"></h2>
+                    </div>
+                </div>
+            </section>
+        </article>
+
+        <!-- 文章內文 -->
+        <article class="top-alla wow fadeIn" data-wow-duration="1s" data-wow-delay="1s">
+            <section>
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <!-- 內文 -->
+                            <div class="news-content" id="POST_CONTENT">
+                                <div id="POST_INFO">
+
+                                </div>
+
+                                <h5 id="POST_SOURCE"></h5>
+                            </div>
+                            <!-- 上/下頁 -->
+                            <div class="arrow">
+                                <div><a href="" class="link_post" id="PREV">＜ PREV</a></div>
+                                <div>|</div>
+                                <div><a href="" class="link_post" id="NEXT">NEXT ＞</a></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </article>
+    </main>
+
+    <!--goTOP-->
+    <a href="#0" class="go-top" style="display: none;">
+        <img src="img/top.svg" alt=""><span>TOP</span>
+    </a>
+
+    <footer class="footer wow fadeInUp" data-wow-duration="1s"></footer>
+
+    <script src='js/jquery-3.4.1.min.js'></script>
+    <script src="js/all.js"></script>
+    <script src="js/wow.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("header").load("./component/header_con.html", function(headerData) {
+                $("header").html(headerData);
+                var script = document.createElement("script");
+                script.src = "js/menu.js";
+                document.head.appendChild(script);
+            });
+
+            new WOW().init();
+        });
+
+        //URL取參數
+        var urlParams = new URLSearchParams(window.location.search);
+        var PageID = urlParams.get('id');
+        var PageIndex = urlParams.get('index');
+
+        $.getJSON("news.json", function (json) {
+            var NEWSDATA = json.BlogData;
+
+            // 排序
+            var sortedBlogData = [...NEWSDATA].sort(compareDate);
+            function compareDate(a, b) {
+                let dateA = new Date(a.PostDate);
+                let dateB = new Date(b.PostDate);
+                return dateB - dateA;
+            }
+
+            // 新的Array 
+            var NewBlog = sortedBlogData;
+            GetBlogPost(PageIndex);
+
+            //印文章
+            function GetBlogPost(e) { 
+                const NEWS_INFO = NewBlog;
+                const AUTHOR = NEWS_INFO[e].BlogAuthor;
+                const CONTENT = NEWS_INFO[e].PostContent;
+                const POST_SOURCE = `本內容由` + AUTHOR + `授權使用，非經同意不得轉載，原文連結點<a target="_blank" href="` + NEWS_INFO[e].PostURL + `">這裡</a> 。`;
+                CONTENT.forEach(item => {
+                    if (item.type == "image") {
+                        $('#POST_INFO').append('<img src="' + item.src + '" alt="' + item.alt + '">')
+                    } else if (item.type == "text") {
+                        $('#POST_INFO').append('<p>' + item.text + '</p>');
+                    } else if (item.type == "title") {
+                        $('#POST_INFO').append('<h4>' + item.title + '</h4>');
+                    }
+                });
+
+                $('#POST_DATE').html(formatDate(NEWS_INFO[e].PostDate));
+                $('#POST_TITLE').html(NEWS_INFO[e].PostTitle);
+                $('#POST_SOURCE').html(POST_SOURCE);
+
+                $('title').html(NEWS_INFO[e].PostTitle + ' | Anthogenol®月光寶盒');
+            }
+
+            var POST_LEN = json.BlogData.length;
+            var thisINDEX = Number(PageIndex);
+
+            if (thisINDEX <= 0) {
+                $('#PREV').addClass('arrow-active');
+            } else if (thisINDEX >= POST_LEN - 1) {
+                $('#NEXT').addClass('arrow-active');
+            }
+
+            $('#PREV').on('click', function () {
+                if (thisINDEX <= 0) {
+                    event.preventDefault();
+                } else {
+                    // 設參數
+                    var postId = thisINDEX - 1;
+                    var url = 'news_detail.html?index=' + (thisINDEX - 1);
+                    $(this).removeClass('arrow-active');
+                    $(this).attr('href', url);
+                }
+            });
+
+            $('#NEXT').on('click', function () {
+                if (thisINDEX >= POST_LEN - 1) {
+                    event.preventDefault();
+                } else {
+                    // 設參數
+                    var postId = thisINDEX + 1;
+                    var url = 'news_detail.html?index=' + (thisINDEX + 1);
+                    $(this).removeClass('arrow-active');
+                    $(this).attr('href', url);
+                }
+            });
+        });
+
+        // 格式化日期
+        function formatDate(dateString) {
+            let date = new Date(dateString);
+            let year = date.getFullYear();
+            let month = String(date.getMonth() + 1).padStart(2, '0');
+            let day = String(date.getDate()).padStart(2, '0');
+            return `${year}.${month}.${day}`;
+        }
+        
+        $("footer").load("./component/footer_con.html");
+
+    </script>
+</body>
+
+</html>

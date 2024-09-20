@@ -1,0 +1,1050 @@
+@import 'tool'
+
+//標題
+.title
+  h1
+    font-weight: 400
+    font-size: 28px
+    letter-spacing: 2.4px
+    line-height: 1.3
+  span
+    color: $Main-color
+    font-weight: 600
+    font-size: 14px
+    line-height: 35px
+    letter-spacing: 1.2px
+
+//形象影片
+.vedio-container
+  max-width: 70%
+  padding-right: 15px
+  padding-left: 15px
+  margin-right: auto
+  margin-left: auto
+
+//開始健康之旅
+.features
+  width: 100%
+  .list
+    width: 100%
+    margin-top: 60px
+    .row
+      width: 80%
+      background-color: $Secondary-coloring
+    .left
+      padding: 3%
+      .info
+        color: $Main-color
+        border-right: 1px solid $Main-color
+        padding: 8% 12% 8% 8%
+        .f-title
+          h2
+            position: relative
+            font-family: 'Oswald'
+            font-weight: 400
+            font-size: 28px
+            line-height: 36px
+            letter-spacing: 3px
+            &::before
+              content: ""
+              position: absolute
+              left: 0px
+              top: 35px
+              display: block
+              width: 100px
+              border-top: 1px solid $Main-color
+              transform: rotate(-45deg)
+          span
+            font-size: 13px
+            padding-left: 30px
+            padding-top: 35px
+            letter-spacing: 2.2px
+            line-height: 1.5
+        h1
+          font-size: 56px
+          text-align: center
+          font-weight: 400
+          padding: 60px 0
+        h3
+          font-size: 20px
+          background-color: $Main-color
+          color: $White
+          border-radius: 50px
+          text-align: center
+          padding: 10px 0
+          font-weight: 500
+          letter-spacing: 2px
+    .right
+      padding: 3%
+      position: relative
+      .info
+        padding: 0 30% 0 0
+        .icon
+          text-align: right
+          padding: 20px 0
+        p
+          color: $Sup-color
+          font-weight: 300
+          font-size: 18px
+          line-height: 50px
+          letter-spacing: 2.2px
+          span
+            border-bottom: 1.8px solid #E2C67A
+      .f-pic
+        position: absolute
+        left: 77%
+        top: 50%
+        width: 390px
+        transform: translate(0%, -50%)
+        img
+          max-width: 100%
+.list02
+  display: flex
+  justify-content: right
+  .left
+    position: relative
+    .info
+      padding: 8% 0 8% 26% !important
+      border: none !important
+    .f-pic
+      position: absolute
+      right: 77%
+      top: 50%
+      width: 390px
+      transform: translate(0%, -50%)
+      img
+        max-width: 100%
+  .right
+    .info
+      border-left: 1px solid $Main-color
+      padding: 8% !important
+
+//首頁主要產品
+.index-product
+  .product
+    text-align: center
+    .pic
+      +imgdiv-padding
+      padding-bottom: 110%
+      img 
+        +imgimg02
+        +hover-transition
+    .text
+      margin: 20px 0
+      h4
+        font-size: 20px
+        font-weight: 400
+        letter-spacing: 2.2px
+        text-align: center
+        line-height: 1.5
+    &:hover
+      cursor: pointer
+      .pic
+        img
+          transform: scale(1.1)	
+      .btn
+        background-color: $Main-color
+        color: $White
+
+//首頁幻燈片
+.slideshow
+  position: relative
+  height: 25vw
+  .slide__item
+    position: absolute
+    left: 0
+    width: 100%
+    .left
+      img
+        width: 100%
+        height: 100%
+    .right
+      display: flex
+      align-items: center
+      justify-content: center
+      padding: 4% 8%
+      background-color: $Main-color
+      text-align: center
+      align-items: center
+      img
+        width: 60%
+      p
+        color: $White
+        font-size: 14px
+        letter-spacing: 2.2px
+        line-height: 1.2
+        font-weight: 300
+        padding: 7% 0
+      &:hover
+        a 
+          img
+            width: 63%
+            +hover-transition
+article section .container .swiper-container .swiper-products
+    margin: 0 40px
+    overflow: hidden
+
+//首頁blog
+article
+  section
+    .container
+      .swiper-container
+        .swiper-blog
+          margin: 0 10px
+          overflow: hidden
+          .swiper-button-next, .swiper-button-prev
+            background: $Main-color
+            outline: none
+            border-radius: 50%
+            width: 30px
+            height: 30px
+          .swiper-button-next
+            right: 0 
+          .swiper-button-prev  
+            left: 0
+          .swiper-button-next:after, .swiper-button-prev:after
+            font-size: 10px
+            font-weight: 900
+            color: $White 
+.swiper-blog .swiper-slide:nth-child(even)
+  margin-top: 60px
+a.index-blog
+  .blogbox
+    padding: 40px 
+    background: $Secondary-coloring
+    .imgbox
+      position: relative
+      display: block
+      overflow: hidden
+      height: 0
+      width: 100%
+      cursor: pointer
+      padding-bottom: 139%
+      background: #FFF
+      img
+        width: 100%
+        display: block
+        -o-object-fit: cover
+        object-fit: cover
+        top: 50%
+        left: 50%
+        position: absolute
+        -webkit-transform: translate(-50%, -50%)
+        transform: translate(-50%, -50%)
+        +hover-transition
+  p
+    padding-top: 20px
+    font-size: 16px
+    letter-spacing: 1.2px
+    +ellipsis
+    -webkit-line-clamp: 2
+  &:hover 
+    .blogbox .imgbox
+      img
+        transform: translate(-50%, -50%) scale(1.1)
+
+//button
+.btn
+  border: 1px solid $Main-color
+  font-size: 14px
+  letter-spacing: 2px
+  color: $Main-color
+  padding: 15px 60px
+  &:hover
+    background-color: $Main-color
+    color: $White
+
+
+// 共用高度
+.top-alla
+  padding: 5% 0
+.push
+  padding-top: 120px  
+   
+/*BANNER
+.banner
+    margin: 0
+    padding: 0
+    .swiper-banner 
+        width: 100%
+        .swiper-slide
+            position: relative
+            overflow: hidden
+            height: auto
+            img
+                position: relative
+                overflow: hidden
+            a
+                position: relative
+                display: -webkit-box
+                display: flex
+                -webkit-box-pack: center
+                justify-content: center
+                -webkit-box-align: center
+                align-items: center
+                width: 100%
+                height: 100%
+                img
+                    width: 100%
+                    height: 100%
+                    -o-object-fit: contain
+                    object-fit: contain
+        .swiper-pagination
+            .swiper-pagination-bullet
+                width: 10px
+                height: 10px
+                background: transparent
+                border: none
+                background-color: $Main-color
+            .swiper-pagination-bullet-active
+                border: none
+                background-color: $Main-color
+
+//page-banner
+.page-banner
+  width: 100%
+  background-color: $Secondary-coloring
+  height: 520px
+  display: flex
+  align-items: center
+  .p-title
+    color: $Main-color
+    padding-top: 100px
+    h1
+      font-family: 'Oswald'
+      letter-spacing: -2px
+      font-size: 120px
+      font-weight: 600
+    p
+      font-weight: 400
+      font-size: 16px
+      line-height: 25px
+      letter-spacing: 2px
+      padding-top: 50px
+
+//page-about
+.page-about
+  // height: 100vh
+  // padding-top: 10%
+  .info
+    display: flex
+    .left
+      width: 50%
+      .title
+        padding-left: 10%
+        padding-top: 70px
+      .list
+        padding-top: 17%
+        li
+          margin: 25px 0
+          a
+            padding-left: 115px
+            color: $Sup-color
+            font-weight: 400
+            font-size: 16px
+            letter-spacing: 1.8px
+            opacity: 30%
+      .text
+        padding-top: 50px
+        padding-left: 25%
+        padding-right: 10%
+        h1
+          color: $Main-color
+          font-family: "Oswald"
+          letter-spacing: -2px
+          font-size: 120px
+          font-weight: 600
+          padding-bottom: 30px
+        p
+          color: $Sup-color
+          letter-spacing: 2px
+          span
+            color: $Main-color
+    .pic 
+      width: 50%
+      display: flex
+      align-items: center
+      img
+        width: 100%
+
+.about__list-li
+  position: relative
+  a
+    font-weight: 500 !important
+    opacity: 100% !important
+    color: $Main-color !important
+  &::before
+    content: ""
+    position: absolute
+    top: 50%
+    width: 80px
+    height: 1px
+    background-color: $Main-color
+  &::after
+    content: ""
+    position: absolute
+    background-image: url(../img/star.svg)
+    background-position: center
+    background-repeat: no-repeat
+    background-size: contain
+    width: 13px
+    height: 13px
+    top: 50%
+    -webkit-transform: translateY(-50%)
+    transform: translateY(-50%)
+    left: 90px 
+
+
+// PRODUCT 產品列表
+.product_card
+  width: 100%
+  position: relative
+  margin-bottom: 40px
+  &::before
+    content: ""
+    position: absolute
+    background-image: url(../img/more.svg)
+    background-position: center
+    background-repeat: no-repeat
+    background-size: contain
+    width: 30px
+    height: 30px
+    top: 0
+    left: 0
+    right: 0
+    bottom: 0
+    margin: auto
+    z-index: 2
+    opacity: 0
+  .product_card_cat
+    letter-spacing: 1.8px
+    font-size: 12px
+    color: $Main-color
+    border-radius: 20px
+    display: block
+    padding: 10px 28px
+    position: absolute
+    top: 20px
+    left: 30px
+    z-index: 1
+  .product_card_pic
+    border: 1px solid $Main-color
+    background-color: #fff
+    +imgbox
+    padding-bottom: 120%
+    img
+      width: 80%
+      display: block
+      -o-object-fit: cover
+      object-fit: cover
+      top: 50%
+      left: 50%
+      position: absolute
+      -webkit-transform: translate(-50%, -50%)
+      transform: translate(-50%, -50%)
+  .product_card_text
+    letter-spacing: 2px
+    h4
+      padding: 15px 0 5px 0
+      font-size: 16px
+      font-weight: 600
+      color: $Main-color
+    p
+      font-size: 18px
+      font-weight: 300
+      color: $Sup-color
+  &:hover
+    &::before
+      opacity: 1
+    .product_card_cat
+      background-color: $White
+    .product_card_pic
+      background: rgba(35, 150, 200, 0.5)
+      img
+        opacity: 0.7
+
+// PRODUCT_DETAIL 產品圖
+.product__carousel
+  .gallery-top
+    .swiper-slide
+      position: relative
+      overflow: hidden
+      a
+        position: relative
+        display: -webkit-box
+        display: flex
+        justify-content: center
+        align-items: center
+        width: 100%
+        height: 100%
+        img
+          width: 100%
+          height: 100%
+          -o-object-fit: contain
+          object-fit: contain
+      .easyzoom-flyout img
+        min-width: 100%
+        min-height: 100%
+
+  .gallery-thumbs .swiper-slide
+    position: relative
+    -webkit-transition: border .15s linear
+    transition: border .15s linear
+    cursor: pointer
+    overflow: hidden
+    height: calc(100% - 2px)
+    margin-top: 5px
+
+    img
+      position: absolute
+      left: 50%
+      top: 50%
+      -webkit-transform: translate(-50%, -50%)
+      transform: translate(-50%, -50%)
+      max-width: 100%
+
+// PRODUCT_DETAIL 產品簡介
+.products_detail_text
+  letter-spacing: 2px
+  h4
+    font-weight: 600
+    font-size: 18px
+    color: $Main-color
+    padding-bottom: 12px
+  h1
+    font-weight: 400
+    font-size: 28px
+  p
+    font-weight: 300
+    color: $Sup-color
+    font-size: 16px
+    padding: 5px 0
+  .price
+    display: flex
+    align-items: center
+    padding: 30px 0 20px 0
+    h3
+      font-family: 'Oswald'
+      font-weight: 500
+      font-size: 22px
+      color: $Main-color
+    span
+      font-family: 'Oswald'
+      color: $Sup-color
+      padding-left: 15px
+      text-decoration: line-through
+      font-weight: 300
+.product_info
+  width: 100%
+  text-align: center
+  img
+    max-width: 80% 
+ 
+
+.title_line
+  hr
+    background: $Secondary-coloring
+    height: 1.5px
+    position: relative
+    &::before
+      content: ""
+      background: $Main-color
+      width: 120px
+      height: 1.5px
+      left: 0
+      bottom: 0
+      position: absolute
+hr
+  background: $Secondary-coloring 
+
+
+//NEWS
+.news-list
+  display: flex
+  width: 100%
+  padding: 30px
+  border-bottom: 1px solid $Secondary-coloring
+  .news-left
+    width: 30%
+    height: 100%
+    overflow: hidden
+    img
+      width: 100%
+      height: 100% !important
+      -o-object-fit: cover
+      object-fit: cover
+  .news-right
+    width: 70%
+    padding-left: 40px
+    padding-top: 20px
+    h1
+      +ellipsis
+      -webkit-line-clamp: 2
+      font-size: 24px
+      line-height: 1.3
+      letter-spacing: 2px
+      font-weight: 400
+      margin-bottom: 5%
+    p
+      +ellipsis
+      -webkit-line-clamp: 2
+      font-size: 14px
+      color: $Sup-color
+      letter-spacing: 2px
+      font-weight: 300
+      margin-bottom: 4%
+    h5
+      text-align: right
+      color: $Main-color
+      letter-spacing: 2px
+      font-weight: 400
+      font-size: 14px
+    .time
+      display: flex
+      margin-bottom: 2%
+    span
+      letter-spacing: 2px
+      font-size: 12px
+      color: $Main-color
+      &:nth-child(3)
+        font-weight: bold
+  &:hover
+    +hover-transition
+    background-color: $Main-color
+    h1 , p , h5 , span
+      color: $White
+
+//NEWS DETAIL
+.news-detail-title
+  .time
+    padding-bottom: 20px
+    font-size: 14px
+    letter-spacing: 2px
+  h2
+    font-size: 24px
+    letter-spacing: 2px
+    color: $black
+    font-weight: 400
+    line-height: 1.3
+.news-content
+  width: 100%
+  img
+    width: 60%
+    margin: 20px 0
+  p
+    letter-spacing: 1.5px
+    line-height: 1.8
+  a
+    color: $Main-color
+  h5
+    font-size: 16px
+    margin: 50px 0
+    line-height: 1.5
+    font-weight: 500
+    color: $Sup-color
+    a
+      color: $Main-color
+  h4
+    color: $Main-color
+    margin: 30px 0 10px 0
+    border-left: 5px solid $Main-color
+    padding-left: 10px
+.arrow
+  display: flex
+  align-items: center
+  justify-content: center
+  margin: 8% 0
+  div , a
+    letter-spacing: 2.2px
+    font-size: 14px
+    font-weight: 500
+    color: $Main-color
+    &:hover
+      color: $Sup-color
+    &:nth-last-child(2)
+      color: $Main-color
+      font-weight: 200
+      padding: 0 40px
+.arrow-active
+  color: rgba(118, 113, 111, 0.3) !important
+
+//FAQ
+.accordion
+  li
+    position: relative
+    margin-bottom: 2px
+    .open
+      display: none
+      padding: 40px 30px
+      background: $White
+      letter-spacing: 1.8px
+      p
+        font-size: 14px
+      a
+        color: $Main-color
+  .faqname
+    width: 100%
+    display: block
+    cursor: pointer
+    user-select: none
+    background: $Main-color
+    padding: 30px 50px 30px 30px
+    letter-spacing: 1.8px
+    &::before
+      width: 22px
+      height: 1.5px
+      right: 25px
+      top: 40px
+      content: " "
+      position: absolute
+      background-color: $White
+      transition: all 0.2s ease-in-out
+      -webkit-transition: all 0.2s ease-in-out
+      -moz-transition: all 0.2s ease-in-out
+    &:after
+      width: 1.5px
+      height: 22px
+      right: 35px
+      top: 30px
+      background-color: $White
+      content: " "
+      position: absolute
+      -webkit-transition: all 0.2s ease-in-out
+      -moz-transition: all 0.2s ease-in-out
+      transition: all 0.2s ease-in-out
+    span
+      color: $White
+      padding-right: 25px
+      font-family: 'Oswald'
+      font-weight: 500
+      font-size: 22px
+    h3
+      color: $White
+      font-size: 16px
+      font-weight: 300
+      line-height: 1.2
+    
+.faqname.active:after
+  transition: all 0.2s ease-in-out
+  display: none
+
+         
+// TAB
+ul.tabs
+  margin: 0
+  padding: 0
+  float: left
+  list-style: none
+  width: 100%
+  li
+    float: left
+    margin: 0
+    cursor: pointer
+    padding: 10px 0px
+    font-size: 16px
+    font-weight: 400
+    color: $Sup-color
+    overflow: hidden
+    position: relative
+    margin: 0 20px
+
+ul.tabs li
+  &:hover
+    color: $Main-color
+  &.active
+    color: $Main-color
+    display: block
+    padding-left: 30px
+    font-weight: 500
+    &::before
+      content: ""
+      position: absolute
+      background-image: url(../img/moon.svg)
+      background-position: center
+      background-repeat: no-repeat
+      background-size: contain
+      width: 30px
+      height: 30px
+      top: 50%
+      transform: translateY(-50%)
+      left: 0
+
+.tab_container
+  clear: both
+  float: left
+  width: 100%
+  background: #fff
+  overflow: auto
+.tab_content
+  display: none
+.tab_drawer_heading
+  display: none
+   
+
+//RWD  
+@media screen and (max-width: 1366px)
+  .features 
+    .list , .list02
+      .right 
+        padding: 5% 4%
+        .info
+          p
+            font-size: 17px
+            line-height: 40px
+          .icon img
+            width: 28%
+        .f-pic
+          width: 280px
+      .left
+        padding: 5% 4%
+        .info
+          padding: 4%
+  .list02 
+    .left
+      .f-pic
+        width: 280px
+
+// @media screen and (max-width: 1024px)
+//   .product__carousel .gallery-top
+//     height: 400px !important
+
+@media screen and (max-width: 1200px) 
+  .features .list .left .info 
+    h1
+      font-size: 45px
+    h3
+      font-size: 18px
+@media screen and (max-width: 991px)
+  .features 
+    .list
+      width: 100%
+      margin-bottom: 280px
+      .row
+        width: 100%
+        .right
+          .info
+            padding: 0
+            .icon
+              display: none
+          .f-pic
+            left: 0
+            right: 0
+            top: auto
+            bottom: -390px
+            margin: auto
+            padding: 0
+            width: 300px
+        .left
+          .info
+            padding: 0 !important 
+            border: none
+            h1
+              padding: 40px 0
+    .list02
+      .left
+        .f-pic
+          left: 0
+          right: 0
+          top: auto
+          bottom: -580px
+          margin: auto
+          padding: 0
+          width: 300px
+      .right
+        .info
+          border-left: none
+          padding: 0 !important
+  .page-banner
+    height: 420px
+    .p-title
+      h1
+        font-size: 90px
+      p
+        font-size: 14px
+        padding-top: 25px
+  .news-list
+    .news-right
+      h1
+        font-size: 18px
+      h5
+        font-size: 14px
+  .index-product .product .text h4
+    font-size: 17px
+  .news-content
+    img
+      width: 100%
+  .slideshow
+    position: relative
+    height: 120vw
+  .page-about
+    .info
+      display: block
+      .left
+        width: 100%
+        .text
+          padding-left: 10%
+          h1
+            font-size: 90px
+        .list
+          padding-top: 3%
+          li 
+            margin: 15px 0
+            a
+             padding-left: 85px
+      .pic
+        padding-top: 10px
+        width: 100% 
+  .about__list-li
+    &::before
+      width: 50px !important
+    &::after
+      left: 60px !important
+  .product_card .product_card_pic
+    padding-bottom: 100%
+@media screen and (min-width: 769px)
+  .mobile_banner
+    display: none 
+@media screen and (max-width: 768px)
+  #ABOUT_YEAR_LIST
+    // height: 200vw
+  .link_post:hover
+    color: #2690C1
+  .vedio-container
+    max-width: 100%
+  .btn
+    padding: 10px 40px
+    font-size: 14px
+  .pc_banner
+    display: none
+  .mobile_banner
+    padding-top: 80px
+  .title h1
+    font-size: 25px
+  .features
+    .list 
+      .row
+        .right .info 
+            p
+              font-size: 14px
+  .index-product
+    .product 
+      .text h4
+        font-size: 14px
+  a.index-blog
+    .blogbox 
+      padding: 25px
+    p
+      font-size: 14px
+  .swiper-blog .swiper-slide:nth-child(even)
+    margin-top: 30px
+  article
+    section
+      .container
+        .index-links-prev-next
+          position: relative
+          .swiper-button-next, .swiper-button-prev
+            top: -120px
+            background: $Main-color
+            outline: none
+            border-radius: 40px
+            width: 40px
+            height: 40px
+          .swiper-button-next:after, .swiper-button-prev:after
+            font-size: 20px
+            font-weight: 900
+            color: $White
+          .swiper-button-next
+            left: auto
+            right: 0px
+          .swiper-button-prev
+            left: auto
+            right: 50px
+  .news-list
+    display: block
+    width: 100%
+    margin-bottom: 30px
+    padding: 15px
+    .news-left
+      width: 100%
+    .news-right
+      width: 100%
+      padding-left: 0
+      .time
+        margin-top: 10px
+      p
+        margin-bottom: 6%
+  .news-detail-title h2
+    font-size: 20px
+  ul.tabs li
+    margin: 0 10px
+  .page-about
+    .info
+      .title
+        font-size: 25px
+@media screen and (max-width: 667px) 
+  .accordion 
+    li .open
+      padding: 30px
+    .faqname
+      padding: 30px 50px 30px 20px
+      span
+        font-size: 18px
+        padding-right: 10px
+      h3
+        font-size: 14px
+  .push
+    padding-top: 100px  
+  /*產品
+  .product__carousel
+    display: none
+ 
+@media screen and (max-width: 575px)
+  .page-banner
+    height: 370px
+    .p-title 
+      h1
+        font-size: 65px
+      p
+        font-size: 11px
+  .swiper-blog .swiper-slide:nth-child(even)
+    margin-top: 0px
+  .products_detail_text
+    h1
+      font-size: 22px
+    p
+      font-size: 14px
+    h4
+      font-size: 16px
+    .price 
+      h3
+        font-size: 18px
+      span
+        font-size: 14px
+  .news-detail-title 
+    .time
+      font-size: 12px
+    h2
+      font-size: 18px
+  ul.tabs li
+    font-size: 14px
+  .page-about
+    padding-top: 10%
+    .info
+      .left
+        .list
+          li 
+            margin: 10px 0
+            a
+              padding-left: 40px
+              font-size: 13px
+        .title 
+          padding: 0 5% 0 5%
+          h1
+            font-size: 20px
+  .about__list-li
+    &::before
+      width: 15px !important
+    &::after
+      left: 20px !important
+  .news-content h5
+    font-size: 14px

@@ -1,0 +1,208 @@
+@import 'tool'
+[hidden]
+  display: none
+  visibility: hidden
+
+.vertical-nav
+  a, label
+    display: block
+    padding: 10px
+    background: transparent
+    -webkit-transition: all .25s ease-in
+    transition: all .25s ease-in
+    margin: 0
+    font-size: 20px
+    font-weight: 500
+
+  label
+    cursor: pointer
+    width: 100%
+    display: flex
+    justify-content: space-between
+
+    a
+      padding: 0
+      box-shadow: none
+      width: calc(100% - 30px)
+
+.nav__list
+  input[type=checkbox]:checked + label + ul
+    /* reset the height when checkbox is checked
+    max-height: 1000px
+
+  label > span
+    float: right
+    -webkit-transition: -webkit-transform .65s ease
+    transition: -webkit-transform .65s ease
+    transition: transform .65s ease
+    transition: transform .65s ease, -webkit-transform .65s ease
+
+  input[type=checkbox]:checked + label > span
+    -webkit-transform: rotate(90deg)
+    transform: rotate(180deg)
+
+#menuToggle
+  display: block
+  position: relative
+  a
+    text-decoration: none
+    transition: color .25s ease
+    color: $Sup-color
+    font-size: 15px
+    font-weight: 400
+
+#menuToggle
+  input:checked ~ ul
+    display: block
+    border-top: solid 3px $White
+    padding: 0
+
+input[type="checkbox"], .left-menu
+  display: none
+  
+// 商品介紹頁
+.center-menu:lang(en) #menu li
+  width: calc(25% - 10px)
+.center-menu
+  #menu
+    li
+      height: fit-content
+      position: relative
+      a
+        padding: 20px 0px 20px 40px
+        position: relative
+        &::before
+          content: ""
+          position: absolute
+          width: 1px
+          height: 100%
+          top: 0
+          left: 5px
+          background-color: $Main-color
+        &::after
+          content: ""
+          position: absolute
+          background-image: url(../img/moon.svg)
+          background-position: center
+          background-repeat: no-repeat
+          background-size: contain
+          width: 30px
+          height: 30px
+          top: 50%
+          -webkit-transform: translateY(-50%)
+          transform: translateY(-50%)
+          left: -5px
+          opacity: 0
+      &:hover
+        a
+          color: $Main-color
+    .nav__list-li
+      a
+        color: $Main-color
+        font-weight: 500
+        &::before
+          background-color: transparent
+        &::after
+          opacity: 1
+
+          
+
+@media screen and (max-width: 991px)
+  // 商品介紹頁
+  .center-menu
+    #menuToggle
+      margin: 15px auto
+  .center-menu
+      #menu
+        li
+          background-color: $White
+          width: 100%
+          padding: 0 15px
+        a
+          &::before
+            display: none
+
+  #menuToggle
+    background: $Main-color
+    position: relative
+
+  .left-menu
+    position: absolute
+    top: 25px
+    left: 50%
+    transform: translateX(-50%)
+    font-size: 16px
+    color: $White
+    display: block
+
+  #menuToggle
+    height: 60px
+    margin: 0px auto 30px auto
+    z-index: 2
+    width: calc(100% - 30px)
+    padding: 0
+
+    input:checked ~ ul
+      &.nav__list
+        margin-top: 58px
+        border: solid 2px $Main-color
+      border-top: none
+
+  #menu li
+    margin: 0
+    border-bottom: solid 1px #d8d8d8
+
+  #menuToggle
+    input
+      display: block
+      width: 60px
+      height: 60px
+      position: absolute
+      top: 0px
+      right: 20px
+      cursor: pointer
+      opacity: 0
+
+      /* hide this
+      z-index: 2
+
+      /* and place it over the hamburger
+      -webkit-touch-callout: none
+
+    span.menu-span
+      display: block
+      width: 25px
+      height: 2px
+      position: absolute
+      top: 20px
+      right: 20px
+      background: $White
+      border-radius: 3px
+      z-index: 1
+      transform-origin: 4px 0px
+      transition: transform 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), background 0.5s cubic-bezier(0.77, 0.2, 0.05, 1), opacity 0.55s ease
+
+      &:nth-last-child(2)
+        top: 36px
+
+      &:nth-last-child(3)
+        top: 28px
+
+    input:checked ~ span.menu-span
+      opacity: 1
+      transform: rotate(45deg) translate(12px, 5px)
+      width: 15px
+      background: $White
+
+      &:nth-last-child(3)
+        opacity: 0
+        transform: rotate(0deg) scale(0.2, 0.2)
+
+      &:nth-last-child(2)
+        transform: rotate(132deg) translate(-2px, 2px)
+        width: 15px
+    
+
+  #menu, .center-menu #menu
+    display: none
+

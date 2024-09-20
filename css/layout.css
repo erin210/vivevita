@@ -1,0 +1,363 @@
+/*google web fonts*/
+/* noto 繁 簡 日, 黑體 宋體 */ @import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP:100,300,400,500,700,900|Noto+Sans+SC:100,300,400,500,700,900|Noto+Sans+TC:100,300,400,500,700,900|Noto+Serif+JP:200,300,400,500,600,700,900|Noto+Serif+SC:200,300,400,500,600,700,900|Noto+Serif+TC:200,300,400,500,600,700,900');
+/* Raleway */ @import url('https://fonts.googleapis.com/css?family=Raleway:100,200,300,400,500,600,700,800,900');
+/* Roboto */ @import url('https://fonts.googleapis.com/css?family=Roboto:100,200,300,400,500,600,700,800,900');
+/*全域控制*/
+    html {min-height: 100%; font-size: 93.75%} /*16px x 93.75% = 15px 網站字型大小預設值*/
+    body {
+        height: 100%;
+        background: #fff;
+        font-family:
+            'Roboto',
+            'Noto Sans TC',
+            'Noto Serif TC',
+            'Noto Sans SC',
+            'Noto Serif SC',
+            'Noto Sans JP',
+            'Noto Serif JP',
+            'Font Awesome\ 5 Brands',
+            'Font Awesome\ 5 Free',
+            'Font Awesome\ 5 Pro',
+            sans-serif;
+        font-size: 1rem;
+        font-weight: 400;
+        color: #202020;
+    }
+    * {
+        /*使用邊框不影響 div or table 本身寬度設定*/
+        -webkit-box-sizing:border-box;
+        -moz-box-sizing:border-box;
+        box-sizing:border-box
+    }
+    *[onclick], button {cursor: pointer}
+
+    div.clearfix {clear: both}
+
+    .displayNone {display: none !important}
+
+    /*漸變效果時間*/
+    a, button, li, dt, dd, p, input, i, span, figure, figcaption {
+        -webkit-transition: all 0.30s ease-in-out;
+        -moz-transition: all 0.30s ease-in-out;
+        -ms-transition: all 0.30s ease-in-out;
+        -o-transition: all 0.30s ease-in-out;
+        outline: none
+    }
+
+    /*images rwd*/
+    img {
+        width: 100%;
+        max-width: 100%;
+        height: auto!important;
+        border: none
+    }
+
+    /*font awesome icon*/
+    i::before, i::after {margin-right: .5rem; margin-left: .5rem}
+
+    /*fonts*/
+    h1 {font-size: 2rem}
+    h2 {font-size: 1.75rem}
+    h3 {font-size: 1.3rem}
+    h4 {font-size: 1.15rem}
+    p, li {font-size: 1rem}
+    li {list-style: none}
+
+    /*link color*/
+    a:link, a:visited {color: #666; text-decoration: none; padding: 1px}
+    a:hover {background: none; color: #000; text-decoration: none}
+
+    /*form*/
+    input, select, textarea {
+        width: 100%;
+        background: #fff;
+        border: 1px solid #221e1f;
+        color: #221e1f;
+        padding: .5rem .75rem
+    }
+    select {padding-bottom: .75rem}
+    input:hover, select:hover, textarea:hover {
+        border: 1px solid #e4e4e4;
+        outline: none
+    }
+    input:focus, select:focus, textarea:focus {
+        border: 1px solid #ff3a1e;
+        outline: none
+    }
+    input::placeholder, textarea::placeholder {font-weight: 300; color: #afafaf}
+    textarea {resize:none}
+    input[type="checkbox"], input[type="radio"] {width: auto !important}
+
+    button {
+        background: #0e8dd9;
+        border: none;
+        border-radius: .5rem;
+        font-weight: 400;
+        color: #fff;
+        padding: .25rem 1.5rem
+    }
+    button:hover {
+        background: #065982;
+        color: #fff
+    }
+    button[type="submit"], button.addCart {background: #0e8dd9; color: #fff}
+    button[type="submit"]:hover, button.addCart:hover {background: #065982;}
+    button[type="reset"], button.addCart {background: #818181; border-color: #818181; color: #fff}
+    button[type="reset"]:hover, button.addCart:hover {background: #666; border-color: #666}
+
+    div.more {text-align: center;}
+    div.more>a {
+        background: #0e8dd9;
+        border-radius: .15rem;
+        color: #fff;
+        padding: .35rem 1rem;
+    }
+    div.more>a::after {
+        content: "\f067";
+        font-size: .9rem;
+        font-weight: 900;
+        margin-left: .25rem;
+    }
+
+/*header*/
+    header {
+        background: #fff;
+        box-shadow: 0.15rem 0 0.5rem rgba(0,0,0,0.5);
+        padding: 1rem 1rem 0;
+    }
+
+    /*主選單設定*/
+    .bg-light {background: none !important; padding: 0;}
+
+    a.navbar-brand {padding-left: 1rem;}
+    .navbar-light .navbar-nav .nav-link {
+        border-bottom: 5px solid #fff;
+        color: #000;
+        text-align: center;
+        line-height: 1rem;
+        padding: 1rem 2rem .5rem;
+    }
+    .navbar-light .navbar-nav .nav-link>p {
+        font-size: 1.275rem;
+        margin-bottom: 0;
+    }
+    .navbar-light .navbar-nav .nav-link>span {
+        font-size: .85rem;
+        color: #0e8dd9;
+    }
+
+    /*主選單設定滑鼠滑過效果*/
+    .navbar-light .navbar-nav .nav-link:focus,
+    .navbar-light .navbar-nav .nav-link:hover {
+        border-bottom-color: #0e8dd9;
+    }
+
+    /*主選單下拉設定*/
+    .dropdown:hover>.dropdown-menu {display: block;}
+    .dropdown-toggle::after {
+        content: "\f0d7";
+        border: none;
+        font-weight: 900;
+        vertical-align: inherit;
+        margin-left: auto;
+    }
+    /*下拉選單樣式設定*/
+    .dropdown-menu {background: #b27493;}
+    .dropdown-menu .dropdown-item {
+        color: #fff;
+        padding: 1rem;
+    }
+    .dropdown-menu .dropdown-item:hover {background: #8c5e80}
+
+    /*pagination*/
+    a.page-link {color: #333; padding: .5rem .75rem}
+    li.page-item:first-of-type>a.page-link,
+    li.page-item:last-of-type>a.page-link {padding: .5rem}
+
+/*moblie nav*/
+    .navbar-light button.navbar-toggler {border: #000 1px solid !important}
+    .navbar-light button.navbar-toggler:hover {background: none; border-color: #000 !important}
+    .navbar-light button.navbar-toggler>i {color: #000}
+    .navbar-light button.navbar-toggler>i::before,
+    .navbar-light button.navbar-toggler>i::after {margin: 0}
+    .navbar-light button.navbar-toggler:hover>i {color: #000}
+    div.closeBtn {text-align: right; margin-bottom: 1.25rem;}
+    div.closeBtn>button {background: none; border: none; color: #000}
+
+    /*行動裝置主選單背景*/
+    div.slidebars {
+        width: 100vw;
+        background: rgba(1, 74, 127, 0.9);
+        padding: 1rem;
+    }
+    /*行動裝置主選單*/
+    dl.slidebarNav {text-align: center; margin-bottom: 0}
+    dl.slidebarNav>dd {
+        border-bottom: #fff 1px solid;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem
+    }
+    dl.slidebarNav>dd>a {
+        font-weight: 300;
+        color: #fff;
+        line-height: 1.15rem;
+    }
+    dl.slidebarNav>dd>a>p {
+        font-size: 2rem;
+    }
+
+/*footer*/
+    footer {background: #0e8dd9;}
+    /*addInf icon*/
+    dl.addInfo,
+    dl.addInfo>dd:last-of-type,
+    dl.addInfo>dd>dl {margin-bottom: 0;}
+    dl.addInfo, dl.addInfo a {color: #fff;}
+    dl.addInfo>dt {
+        font-size: 1.25rem;
+        margin-bottom: .75rem;
+    }
+    dl.addInfo>dd>dl>dd {margin-right: 1rem;}
+
+    /*fNav*/
+    dl.fNav {
+        border-left: 1px solid #fff;
+        margin-bottom: 0;
+        padding: 0 1rem;
+    }
+    dl.fNav>dd {
+        margin-bottom: 1rem;
+        padding: 0 .5rem;
+    }
+    dl.fNav>dd a {color: #fff}
+    dl.fNav>dd:last-of-type {margin-bottom: 0;}
+
+    section.copyright {
+        border-top: 1px solid #fff;
+        font-size: .85rem;
+        font-weight: 500;
+        color: #fff;
+        text-align: center;
+    }
+
+/*goTOP use only*/
+    .cd-top {
+        width: 2rem;
+        height: 2rem;
+        background: url(../images/layout/cd-top-arrow.svg) no-repeat center 50% #014a7f;
+        border-radius: .5rem;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.05);
+        text-indent: 100%;
+        white-space: nowrap;
+        visibility: hidden;
+        display: inline-block;
+        position: fixed;
+        bottom: 40px;
+        right: 10px;
+        z-index: 9999;
+        /* image replacement properties */
+        overflow: hidden;
+        opacity: 0;
+        -webkit-transition: opacity .3s 0s, visibility 0s .3s;
+        -moz-transition: opacity .3s 0s, visibility 0s .3s;
+        transition: opacity .3s 0s, visibility 0s .3s;
+    }
+    .cd-top.cd-is-visible, .cd-top.cd-fade-out, .no-touch .cd-top:hover {
+        -webkit-transition: opacity .3s 0s, visibility 0s 0s;
+        -moz-transition: opacity .3s 0s, visibility 0s 0s;
+        transition: opacity .3s 0s, visibility 0s 0s
+    }
+    .cd-top.cd-is-visible {visibility: visible; opacity: .75}
+    /* the button becomes visible */
+    /* .cd-top.cd-fade-out {opacity: .25} */
+    /* if the user keeps scrolling down, the button is out of focus and becomes less visible */
+    .cd-top:hover {background: url(../images/layout/cd-top-arrow.svg) no-repeat center 50% #014a7f; opacity: 1} /*改變按鈕顏色*/
+    @media only screen and (min-width: 1024px) {.cd-top {right: 30px; bottom: 30px}}
+    @media only screen and (min-width: 768px) {.cd-top {right: 1.5rem; bottom: 6.5rem}}
+
+    /*list*/
+        dl.List, dl.listImg, dl.listCube, div.listPic {margin-bottom: 0;}
+        /*一般列表*/
+        dl.List>dd {
+            border-bottom: 1px dashed #ccc;
+            margin-bottom: 1.25rem;
+            padding-bottom: 1.25rem;
+        }
+        dl.List>dd:last-of-type {border-bottom: none;}
+        dl.List>dd>p {
+            color: #666;
+            margin-bottom: 0;
+            /*單行文字限制*/
+            overflow:hidden;
+            text-overflow : ellipsis;
+            white-space : nowrap;
+        }
+        dl.List>dd>p>a {
+            font-size: 1.15rem;
+            font-weight: 500;
+        }
+
+        /*圖片列表*/
+        dl.listImg>dd>figure {
+            width: 100%;
+            max-width: 248px;
+            height: 100vh;
+            max-height: 248px;
+            border: 1px solid #ddd;
+            padding: 1rem;
+            overflow: hidden;
+        }
+        dl.listImg>dd>figure>p {
+            max-width: 248px;
+            max-height: 248px;
+        }
+        dl.listImg>dd>figure>figcaption {
+            font-size: 1.25rem;
+            font-weight: 500;
+            text-align: center;
+        }
+
+        /*方塊帶文字列表*/
+        dl.listCube>dd>figure {
+            background: #ccc;
+            border-radius: .35rem;
+            font-size: 1.35rem;
+            padding: 1rem;
+        }
+        dl.listCube>dd>figure:hover {background: #e4ccb3}
+
+        /*列表帶圖片*/
+        div.listPic>div {
+            border: 1px solid #ccc;
+            padding: .5rem;
+        }
+        div.listPic>div>div:nth-of-type(2)>p {margin-bottom: .5rem;}
+        div.listPic>div>div:nth-of-type(2)>p:nth-of-type(1) {
+            color: #ff9012;
+        }
+        div.listPic>div>div:nth-of-type(2)>p:nth-of-type(2) {
+            font-size: 1.25rem;
+            margin-bottom: 0;
+        }
+        div.listPic>div>div:nth-of-type(2)>p:nth-of-type(2),
+        div.listPic>div>div:nth-of-type(2)>p:nth-of-type(3) {
+            /*單行文字限制*/
+            overflow:hidden;
+            text-overflow : ellipsis;
+            white-space : nowrap;
+        }
+        div.listPic>div>div:nth-of-type(2)>p:nth-of-type(4) {
+            text-align: right;
+        }
+        div.listPic>div>div:nth-of-type(2)>p:nth-of-type(4)>a {color: #ff9012;}
+
+    /*麵包屑*/
+        nav.crumbs>span {color: #ff9012;}
+        nav.crumbs>span::after {
+            content: "\f105";
+            font-weight: 900;
+            color: #000;
+            margin-left: .5rem;
+            margin-right: .25rem;
+        }
+        nav.crumbs>span:last-of-type::after {content: none}

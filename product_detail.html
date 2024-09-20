@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="zh-tw">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="x-ua-compatible" content="IE=edge, chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <title>Anthogenol®月光寶盒</title>
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-T2LGN669');</script>
+  <!-- End Google Tag Manager -->
+  <!-- SEO -->
+  <meta name="author" content="VIVEVITA">
+  <meta name="copyright" content="VIVEVITA">
+  <meta name="description" content="Anthogenol®月光寶盒">
+  <meta name="keyword" content="Anthogenol®月光寶盒">
+  <meta property="og:title" content="Anthogenol®月光寶盒">
+  <meta property="og:url" content="http://www.example.com/">
+  <meta property="og:image" content="http://example.com/image.jpg">
+  <meta property="og:description" content="Anthogenol®月光寶盒">
+  <!--標籤上的 icon-->
+  <link rel="icon" href="favicon.png">
+  <link rel="icon" href="favicon.ico?v=1.1">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" sizes="180x180">
+  <link rel="icon" type="image/png" href="favicon-32x32.png" sizes="32x32">
+  <link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16">
+  <!-- css -->
+  <link rel="stylesheet" href="css/menu.css">
+  <link rel='stylesheet' href="css/left-menu.css">
+  <link rel="stylesheet" type="text/css" href="css/preset.css">
+  <link rel="stylesheet" type="text/css" href="css/bootstrap-grid.css">
+  <link rel="stylesheet" type="text/css" href="css/all.css">
+  <!-- 動畫 -->
+  <link rel="stylesheet" href="css/animate.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@200..700&display=swap" rel="stylesheet">
+  <!-- 輪播 -->
+  <link rel='stylesheet' href="css/swiper.min.css">
+  <link rel="stylesheet" type="text/css" href="css/prphoto.css">
+  <link rel="stylesheet" type="text/css" href="css/swiper.min2.css">
+
+</head>
+<body>
+  <header class="header-area wow fadeInDown"></header>
+  <main>
+    <!-- BANNER-->
+    <article class="page-banner wow fadeInDown" data-wow-offset="1" data-wow-duration="0.7s" data-wow-delay="0.7s">
+      <section class="container">
+        <div class="p-title">
+          <h1 class="h1_text"></h1>
+          <p class="wow fadeInDown" data-wow-duration="0.7s" data-wow-delay="1.5s">
+            精選各國高品質、國際認證、安全的保健營養品，<br>
+            替消費者做到嚴格把關，守護您與家人的健康</p>
+        </div>
+      </section>
+    </article>
+
+    <!-- 產品內頁 -->
+    <style>
+      .swiper-container {
+        width: 100%;
+        height: 80px;
+      }
+    </style>
+    <article class="top-alla wow fadeIn" data-wow-duration="1s" data-wow-delay="1.8s">
+      <section>
+        <div class="container">
+          <div class="row">
+            <div class="col-lg-5 col-md-12">
+              <div class="product__carousel">
+                <!-- Swiper and EasyZoom plugins start -->
+                <div class="swiper-container gallery-top">
+                  <div class="swiper-wrapper" id="PD_IMG_BIG">
+                  </div>
+                </div>
+                <!-- 小圖 -->
+                <div class="swiper-container gallery-thumbs">
+                  <div class="swiper-wrapper" id="PD_IMG_SMALL">
+                  </div>
+                </div>
+                <!-- Swiper and EasyZoom plugins end -->
+              </div>
+            </div>
+
+            <!-- 產品說明 -->
+            <div class="col-lg-7 col-md-12 mt-4 mt-lg-0 products_detail_text" id="PRODUCT_DETAIL"></div>
+          </div>
+          <!-- 產品介紹圖 -->
+          <div>
+            <hr class="mt-5 mb-5">
+            <div class="product_info" id="PRODUCT_LANDING">
+            </div>
+          </div>
+
+          <!-- 回上一頁 -->
+          <div class="row">
+            <div class="col-12 text-center mt-5 mb-5">
+              <button value="" onclick="location.href='product.html'" class="btn">回上一頁</button>
+            </div>
+          </div>
+        </div>
+      </section>
+    </article>
+  </main>
+  <!--goTOP-->
+  <a href="#0" class="go-top" style="display: none;">
+    <img src="img/top.svg" alt=""><span>TOP</span>
+  </a>
+
+  <footer class="footer wow fadeInUp" data-wow-duration="1s"></footer>
+
+  <script src='js/jquery-3.4.1.min.js'></script>
+  <script src="js/all.js"></script>
+  <script src='js/swiper.min2.js'></script>
+  <script src='js/easyzoom.js'></script>
+  <script src="js/product-swiper.js"></script>
+  <script src="js/wow.min.js"></script>
+
+  <script>
+    $(document).ready(function () {
+        $("header").load("./component/header_con.html", function(headerData) {
+            $("header").html(headerData);
+            var script = document.createElement("script");
+            script.src = "js/menu.js";
+            document.head.appendChild(script);
+        });
+        
+        new WOW().init();
+    });
+
+    //打字動畫
+    const dom = $('.h1_text');
+    const data = 'PRODUCT'.split('');
+
+    let index = 0;
+    function writing(index) {
+      if (index < data.length) {
+        dom.html(dom.html() + data[index]);
+        setTimeout(() => writing(++index), 100);
+      }
+    }
+    setTimeout(() => writing(index), 800);
+
+
+    //JSON
+    $.getJSON("product.json", function (json) {
+      //URL取參數
+      var urlParams = new URLSearchParams(window.location.search);
+      var CategoryID = urlParams.get('category');//分類
+      var ProductID = urlParams.get('id');//產品編號
+      var ALLCategories = json.Categories;
+      var GET_PD_RESULT = GetCategoryID(CategoryID, ProductID);
+      var THIS_PRODUCT = ALLCategories[GET_PD_RESULT.categoryIndex].product_List[GET_PD_RESULT.productIndex];
+      var PRODUCT_C_QTY = THIS_PRODUCT.Product_Content_QTY;
+
+      //印產品圖
+      THIS_PRODUCT.Product_IMG.forEach((item, i) => {
+        const NN = i + 1;
+        const PD_IMG_BIG = `<div class="swiper-slide easyzoom easyzoom--overlay">
+                              <a href="upload/pd` + PRODUCT_C_QTY + `-0` + NN + `.png">
+                                <img src="upload/pd`+ PRODUCT_C_QTY + `-0` + NN + `.png" alt="" />
+                              </a>
+                            </div>`;
+        const PD_IMG_SMALL = `<div class="swiper-slide">
+                                <img src="upload/pd` + PRODUCT_C_QTY + `-0` + NN + `.png" alt="">
+                              </div>`;
+
+        $('#PD_IMG_BIG').append(PD_IMG_BIG);
+        $('#PD_IMG_SMALL').append(PD_IMG_SMALL);
+      });
+
+      //初始化套件
+      var $easyzoom = $('.easyzoom').easyZoom();
+      var galleryThumbs = new Swiper('.gallery-thumbs', {
+        spaceBetween: 10,
+        slidesPerView: 4,
+        freeMode: true,
+        watchSlidesVisibility: true,
+        watchSlidesProgress: true,
+      });
+      var galleryTop = new Swiper('.gallery-top', {
+        spaceBetween: 10,
+        thumbs: {
+          swiper: galleryThumbs
+        }
+      });
+
+      //印產品資訊
+      var formattedPrice = THIS_PRODUCT.Product_Price.toLocaleString('zh-TW');
+      var formattedPriceOriginal = THIS_PRODUCT.Product_Original_Price.toLocaleString('zh-TW');
+      var PRODUCT_HTML = `<div class="col-12 title_line">
+                          <h4>`+ THIS_PRODUCT.Product_Brand + `</h4>
+                          <h1>`+ THIS_PRODUCT.Product_Name + `</h1>
+                          <hr>
+                        </div>
+                        <div class="col-12">
+                          `+ THIS_PRODUCT.Product_Detail + `
+                          <div class="price">
+                            <h3>`+ THIS_PRODUCT.Product_Ｃurrency + ` ` + formattedPrice + `</h3>
+                            <span>`+ THIS_PRODUCT.Product_Ｃurrency + ` ` + formattedPriceOriginal + `</span>
+                          </div>
+                          <a target="blank"
+                              href="https://shope.ee/A9pRmXJQiz">
+                              <button class="btn">立即購買></button>
+                            </a>
+                        </div>
+                  `;
+      $('#PRODUCT_DETAIL').html(PRODUCT_HTML);
+      $('title').html(THIS_PRODUCT.Product_Name +' | Anthogenol®月光寶盒');
+
+      //印說明圖
+      THIS_PRODUCT.Product_Landing_PIC.forEach((item, index) => {
+        $('#PRODUCT_LANDING').append('<img src="upload/landing0' + (index + 1) + '.jpg" alt="">');
+
+      });
+
+      //找對應位置
+      function GetCategoryID(cID, pID) {
+        for (let i = 0; i < json.Categories.length; i++) {
+          if (json.Categories[i].Categories_ID === cID) {
+            for (let p = 0; p < json.Categories[i].product_List.length; p++) {
+              if (json.Categories[i].product_List[p].Product_ID === pID) {
+                return { categoryIndex: i, productIndex: p };
+              }
+            }
+            return { categoryIndex: i, productIndex: null };
+          }
+        }
+        return { categoryIndex: null, productIndex: null };
+      }
+
+    });
+    
+    $("footer").load("./component/footer_con.html");
+      
+  </script>
+
+</body>
+
+</html>
