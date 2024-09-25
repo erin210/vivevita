@@ -59,7 +59,7 @@
                             <span>BLOG</span>
                         </div>
                         <!-- 標題 -->
-                        <h2 id="POST_TITLE"></h2>
+                        <h1 id="POST_TITLE"></h1>
                     </div>
                 </div>
             </section>
@@ -119,11 +119,11 @@
         var PageID = urlParams.get('id');
         var PageIndex = urlParams.get('index');
 
-        $.getJSON("news.json", function (json) {
-            var NEWSDATA = json.BlogData;
+        $.getJSON("recommend.json", function (json) {
+            var recommendDATA = json.BlogData;
 
             // 排序
-            var sortedBlogData = [...NEWSDATA].sort(compareDate);
+            var sortedBlogData = [...recommendDATA].sort(compareDate);
             function compareDate(a, b) {
                 let dateA = new Date(a.PostDate);
                 let dateB = new Date(b.PostDate);
@@ -136,25 +136,25 @@
 
             //印文章
             function GetBlogPost(e) { 
-                const NEWS_INFO = NewBlog;
-                const AUTHOR = NEWS_INFO[e].BlogAuthor;
-                const CONTENT = NEWS_INFO[e].PostContent;
-                const POST_SOURCE = `本內容由` + AUTHOR + `授權使用，非經同意不得轉載，原文連結點<a target="_blank" href="` + NEWS_INFO[e].PostURL + `">這裡</a> 。`;
+                const recommend_INFO = NewBlog;
+                const AUTHOR = recommend_INFO[e].BlogAuthor;
+                const CONTENT = recommend_INFO[e].PostContent;
+                const POST_SOURCE = `本內容由` + AUTHOR + `授權使用，非經同意不得轉載，原文連結點<a target="_blank" href="` + recommend_INFO[e].PostURL + `">這裡</a> 。`;
                 CONTENT.forEach(item => {
                     if (item.type == "image") {
                         $('#POST_INFO').append('<img src="' + item.src + '" alt="' + item.alt + '">')
                     } else if (item.type == "text") {
                         $('#POST_INFO').append('<p>' + item.text + '</p>');
                     } else if (item.type == "title") {
-                        $('#POST_INFO').append('<h4>' + item.title + '</h4>');
+                        $('#POST_INFO').append('<h2>' + item.title + '</h2>');
                     }
                 });
 
-                $('#POST_DATE').html(formatDate(NEWS_INFO[e].PostDate));
-                $('#POST_TITLE').html(NEWS_INFO[e].PostTitle);
+                $('#POST_DATE').html(formatDate(recommend_INFO[e].PostDate));
+                $('#POST_TITLE').html(recommend_INFO[e].PostTitle);
                 $('#POST_SOURCE').html(POST_SOURCE);
 
-                $('title').html(NEWS_INFO[e].PostTitle + ' | Anthogenol®月光寶盒');
+                $('title').html(recommend_INFO[e].PostTitle + ' | Anthogenol®月光寶盒');
             }
 
             var POST_LEN = json.BlogData.length;
@@ -172,7 +172,7 @@
                 } else {
                     // 設參數
                     var postId = thisINDEX - 1;
-                    var url = 'news_detail.html?index=' + (thisINDEX - 1);
+                    var url = 'recommend_detail.html?index=' + (thisINDEX - 1);
                     $(this).removeClass('arrow-active');
                     $(this).attr('href', url);
                 }
@@ -184,7 +184,7 @@
                 } else {
                     // 設參數
                     var postId = thisINDEX + 1;
-                    var url = 'news_detail.html?index=' + (thisINDEX + 1);
+                    var url = 'recommend_detail.html?index=' + (thisINDEX + 1);
                     $(this).removeClass('arrow-active');
                     $(this).attr('href', url);
                 }

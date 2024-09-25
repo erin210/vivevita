@@ -66,7 +66,7 @@
                 <div class="container">
                     <div class="row">
                         <div class="col-12" id="BLOG_LIST">
-                            <!-- news_detail -->
+                            <!-- recommend_detail -->
                         </div>
                     </div>
                 </div>
@@ -110,11 +110,11 @@
         setTimeout(() => writing(index), 1000);
 
         //JSON
-        $.getJSON("news.json", function (json) {
-            var NEWSINFO = json.BlogData;
+        $.getJSON("recommend.json", function (json) {
+            var recommendINFO = json.BlogData;
 
             // 排序 
-            var sortedBlogData = [...NEWSINFO].sort(compareDate);
+            var sortedBlogData = [...recommendINFO].sort(compareDate);
             function compareDate(a, b) {
                 let dateA = new Date(a.PostDate);
                 let dateB = new Date(b.PostDate);
@@ -127,7 +127,7 @@
             NewBlog.forEach((data, index) => {
 
                 var postINDEX = data.ID;
-                var url = 'news_detail.html?index=' + index;
+                var url = 'recommend_detail.html?index=' + index;
 
                 // 抓所有文字
                 var PostTXT = '';
@@ -140,18 +140,18 @@
                 });
 
                 const LIST_HTML = `<a href="` + url + `">
-                                                <div class="news-list">
-                                                    <div class="news-left">
+                                                <div class="recommend-list">
+                                                    <div class="recommend-left">
                                                         <img src="`+ data.BlogPicURL + `" alt="">
                                                     </div>
-                                                    <div class="news-right">
+                                                    <div class="recommend-right">
                                                         <div class="time">
                                                             <span>`+ formatDate(data.PostDate) + `</span>
                                                             <span>｜</span>
                                                             <span>BLOG</span>
                                                         </div> 
                                                         <!--標題-->   
-                                                        <h1>`+ data.PostTitle + `</h1>
+                                                        <h2>`+ data.PostTitle + `</h2>
                                                         <!--簡述--> 
                                                         <p>`+ PostTXT + `</p>
                                                         <h5>MORE ></h5>
