@@ -1,7 +1,6 @@
 @charset "UTF-8";
 .title h1 {
   font-weight: 400;
-  font-size: 28px;
   letter-spacing: 2.4px;
   line-height: 1.3;
 }
@@ -44,7 +43,6 @@
   position: relative;
   font-family: "Oswald";
   font-weight: 400;
-  font-size: 28px;
   line-height: 36px;
   letter-spacing: 3px;
 }
@@ -59,7 +57,7 @@
   transform: rotate(-45deg);
 }
 .features .list .left .info .f-title span {
-  font-size: 13px;
+  font-size: 14px;
   padding-left: 30px;
   padding-top: 35px;
   letter-spacing: 2.2px;
@@ -72,7 +70,6 @@
   padding: 60px 0;
 }
 .features .list .left .info h3 {
-  font-size: 20px;
   background-color: #2690C1;
   color: #ffffff;
   border-radius: 50px;
@@ -82,7 +79,7 @@
   letter-spacing: 2px;
 }
 .features .list .right {
-  padding: 3%;
+  padding: 2%;
   position: relative;
 }
 .features .list .right .info {
@@ -95,7 +92,6 @@
 .features .list .right .info p {
   color: #76716F;
   font-weight: 300;
-  font-size: 18px;
   line-height: 50px;
   letter-spacing: 2.2px;
 }
@@ -168,12 +164,16 @@
 .index-product .product .text {
   margin: 20px 0;
 }
-.index-product .product .text h4 {
-  font-size: 20px;
+.index-product .product .text h3 {
   font-weight: 400;
   letter-spacing: 2.2px;
   text-align: center;
   line-height: 1.5;
+}
+.index-product .product .text h4 {
+  color: #2690C1;
+  margin-bottom: 10px;
+  font-weight: 500;
 }
 .index-product .product:hover {
   cursor: pointer;
@@ -387,6 +387,22 @@ a.index-blog:hover .blogbox .imgbox img {
   line-height: 25px;
   letter-spacing: 2px;
   padding-top: 50px;
+}
+.page-banner .p-title2 {
+  padding-top: 100px;
+}
+.page-banner .p-title2 h1 {
+  font-size: 30px;
+  letter-spacing: 2px;
+  color: #000000;
+  font-weight: 400;
+  line-height: 1.3;
+}
+.page-banner .p-title2 .time {
+  color: #2690C1;
+  padding-bottom: 20px;
+  font-size: 16px;
+  letter-spacing: 2px;
 }
 
 .page-about .info {
@@ -657,124 +673,126 @@ hr {
   background: #E6F0F4;
 }
 
-.news-list {
+.recommend-list {
   display: flex;
   width: 100%;
   padding: 30px;
   border-bottom: 1px solid #E6F0F4;
 }
-.news-list .news-left {
+.recommend-list .recommend-left {
   width: 30%;
   height: 100%;
   overflow: hidden;
 }
-.news-list .news-left img {
+.recommend-list .recommend-left img {
   width: 100%;
   height: 100% !important;
   -o-object-fit: cover;
   object-fit: cover;
 }
-.news-list .news-right {
+.recommend-list .recommend-right {
   width: 70%;
   padding-left: 40px;
   padding-top: 20px;
 }
-.news-list .news-right h1 {
+.recommend-list .recommend-right h2, .recommend-list .recommend-right p {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 2;
-  font-size: 24px;
-  line-height: 1.3;
   letter-spacing: 2px;
+}
+.recommend-list .recommend-right h2 {
+  font-size: 24px;
   font-weight: 400;
   margin-bottom: 5%;
+  line-height: 1.3;
 }
-.news-list .news-right p {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
+.recommend-list .recommend-right p {
   font-size: 14px;
-  color: #76716F;
-  letter-spacing: 2px;
   font-weight: 300;
+  color: #76716F;
   margin-bottom: 4%;
 }
-.news-list .news-right h5 {
+.recommend-list .recommend-right h5 {
   text-align: right;
   color: #2690C1;
   letter-spacing: 2px;
   font-weight: 400;
   font-size: 14px;
 }
-.news-list .news-right .time {
+.recommend-list .recommend-right .time {
   display: flex;
   margin-bottom: 2%;
 }
-.news-list .news-right span {
+.recommend-list .recommend-right span {
   letter-spacing: 2px;
-  font-size: 12px;
+  font-size: 14px;
   color: #2690C1;
 }
-.news-list .news-right span:nth-child(3) {
+.recommend-list .recommend-right span:nth-child(3) {
   font-weight: bold;
 }
-.news-list:hover {
+.recommend-list:hover {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   background-color: #2690C1;
 }
-.news-list:hover h1, .news-list:hover p, .news-list:hover h5, .news-list:hover span {
+.recommend-list:hover h2, .recommend-list:hover p, .recommend-list:hover h5, .recommend-list:hover span {
   color: #ffffff;
 }
 
-.news-detail-title .time {
-  padding-bottom: 20px;
-  font-size: 14px;
-  letter-spacing: 2px;
-}
-.news-detail-title h2 {
-  font-size: 24px;
-  letter-spacing: 2px;
-  color: #000000;
-  font-weight: 400;
-  line-height: 1.3;
-}
-
-.news-content {
+.article-content {
   width: 100%;
 }
-.news-content img {
-  width: 60%;
-  margin: 20px 0;
+.article-content h2 {
+  color: #2690C1;
+  margin: 30px 0 20px 0;
+  border-left: 5px solid #2690C1;
+  padding-left: 10px;
+  font-size: 1.25rem;
+  line-height: 1.2;
 }
-.news-content p {
+.article-content p, .article-content h3, .article-content span {
   letter-spacing: 1.5px;
   line-height: 1.8;
 }
-.news-content a {
+.article-content h3 {
+  margin: 8px 0;
+  font-size: 18px;
+  font-weight: 500;
+}
+.article-content h3::before {
+  content: "• ";
+}
+.article-content span {
+  color: #76716F;
+  font-weight: 400;
+  display: block;
+  padding-left: 18px;
+}
+.article-content img {
+  width: 100%;
+  margin: 20px 0;
+}
+.article-content a {
   color: #2690C1;
 }
-.news-content h5 {
+.article-content h5 {
   font-size: 16px;
   margin: 50px 0;
   line-height: 1.5;
   font-weight: 500;
   color: #76716F;
 }
-.news-content h5 a {
+.article-content h5 a {
   color: #2690C1;
 }
-.news-content h4 {
-  color: #2690C1;
-  margin: 30px 0 10px 0;
-  border-left: 5px solid #2690C1;
-  padding-left: 10px;
+.article-content .recommend-info {
+  width: 60%;
 }
 
 .arrow {
@@ -858,9 +876,8 @@ hr {
   font-weight: 500;
   font-size: 22px;
 }
-.accordion .faqname h3 {
+.accordion .faqname h4 {
   color: #ffffff;
-  font-size: 16px;
   font-weight: 300;
   line-height: 1.2;
 }
@@ -934,7 +951,6 @@ ul.tabs li.active::before {
     padding: 5% 4%;
   }
   .features .list .right .info p, .features .list02 .right .info p {
-    font-size: 17px;
     line-height: 40px;
   }
   .features .list .right .info .icon img, .features .list02 .right .info .icon img {
@@ -956,9 +972,6 @@ ul.tabs li.active::before {
 @media screen and (max-width: 1200px) {
   .features .list .left .info h1 {
     font-size: 45px;
-  }
-  .features .list .left .info h3 {
-    font-size: 18px;
   }
 }
 @media screen and (max-width: 991px) {
@@ -1014,16 +1027,16 @@ ul.tabs li.active::before {
     font-size: 14px;
     padding-top: 25px;
   }
-  .news-list .news-right h1 {
+  .recommend-banner {
+    height: 420px;
+  }
+  .recommend-list .recommend-right h2 {
     font-size: 18px;
   }
-  .news-list .news-right h5 {
+  .recommend-list .recommend-right h5 {
     font-size: 14px;
   }
-  .index-product .product .text h4 {
-    font-size: 17px;
-  }
-  .news-content img {
+  .article-content .recommend-info {
     width: 100%;
   }
   .slideshow {
@@ -1093,7 +1106,7 @@ ul.tabs li.active::before {
   .features .list .row .right .info p {
     font-size: 14px;
   }
-  .index-product .product .text h4 {
+  .index-product .product .text h3 {
     font-size: 14px;
   }
   a.index-blog .blogbox {
@@ -1129,27 +1142,27 @@ ul.tabs li.active::before {
     left: auto;
     right: 50px;
   }
-  .news-list {
+  .recommend-list {
     display: block;
     width: 100%;
     margin-bottom: 30px;
     padding: 15px;
   }
-  .news-list .news-left {
+  .recommend-list .recommend-left {
     width: 100%;
   }
-  .news-list .news-right {
+  .recommend-list .recommend-right {
     width: 100%;
     padding-left: 0;
   }
-  .news-list .news-right .time {
+  .recommend-list .recommend-right .time {
     margin-top: 10px;
   }
-  .news-list .news-right p {
+  .recommend-list .recommend-right p {
     margin-bottom: 6%;
   }
-  .news-detail-title h2 {
-    font-size: 20px;
+  .page-banner .p-title2 h1 {
+    font-size: 24px;
   }
   ul.tabs li {
     margin: 0 10px;
@@ -1169,7 +1182,7 @@ ul.tabs li.active::before {
     font-size: 18px;
     padding-right: 10px;
   }
-  .accordion .faqname h3 {
+  .accordion .faqname h4 {
     font-size: 14px;
   }
   .push {
@@ -1178,6 +1191,12 @@ ul.tabs li.active::before {
   /*產品 */
   .product__carousel {
     display: none;
+  }
+  .article-content h2 {
+    font-size: 1.1rem;
+  }
+  .article-content h3, .article-content span {
+    font-size: 14px;
   }
 }
 @media screen and (max-width: 575px) {
@@ -1189,6 +1208,12 @@ ul.tabs li.active::before {
   }
   .page-banner .p-title p {
     font-size: 11px;
+  }
+  .page-banner .p-title2 h1 {
+    font-size: 18px;
+  }
+  .page-banner .p-title2 .time {
+    font-size: 12px;
   }
   .swiper-blog .swiper-slide:nth-child(even) {
     margin-top: 0px;
@@ -1207,12 +1232,6 @@ ul.tabs li.active::before {
   }
   .products_detail_text .price span {
     font-size: 14px;
-  }
-  .news-detail-title .time {
-    font-size: 12px;
-  }
-  .news-detail-title h2 {
-    font-size: 18px;
   }
   ul.tabs li {
     font-size: 14px;
@@ -1239,7 +1258,7 @@ ul.tabs li.active::before {
   .about__list-li::after {
     left: 20px !important;
   }
-  .news-content h5 {
+  .article-content h5 {
     font-size: 14px;
   }
 }/*# sourceMappingURL=all.css.map */

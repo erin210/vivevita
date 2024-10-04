@@ -784,6 +784,9 @@ ol li, ul li {
   .classy-navbar .nav-logo img {
     max-width: 180px;
   }
+  .classynav ul a {
+    margin: 0 14px;
+  }
 }
 @media screen and (min-width: 992px) {
   .mobile-cart {
