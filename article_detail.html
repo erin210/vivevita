@@ -293,7 +293,7 @@
             if ($(window).width() > 768) {
                 const sidebar = $('.articleArea .sidebar_list');
                 const sidebarNav = sidebar.find('nav');
-                const footerOffset = $('footer').offset().top;
+                const footerOffset = $('.arrow').offset().top;
                 const scrollBottom = $(window).scrollTop() + $(window).height();
                 const navHeight = sidebarNav.outerHeight();
 
