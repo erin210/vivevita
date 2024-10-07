@@ -333,6 +333,10 @@ a.index-blog
       padding-bottom: 20px
       font-size: 16px
       letter-spacing: 2px
+      a
+        color: $Main-color
+        &:hover
+          filter: brightness(1.2)
 
 
 //page-about
@@ -793,8 +797,158 @@ ul.tabs li
   display: none
 .tab_drawer_heading
   display: none
-   
 
+
+//ARTICLE PAGE
+ul.tabs.article_tab
+  margin: 0
+  padding: 0
+  float: left
+  list-style: none
+  width: 100%
+  li
+    float: left
+    margin: 0
+    cursor: pointer
+    padding: 1.5em 2.3em
+    font-size: 16px
+    font-weight: 400
+    color: $Sup-color
+    overflow: hidden
+    position: relative
+    margin: 0 10px
+    &:hover
+      color: $Main-color
+    &.active
+      color: $White
+      background-color: $Main-color
+      display: block
+      padding-left: 3.4em
+      font-weight: 500
+      border-radius: 50px
+      &::before
+        content: ""
+        position: absolute
+        background-image: url(../img/moon.svg)
+        background-position: center
+        background-repeat: no-repeat
+        background-size: contain
+        width: 25px
+        height: 25px
+        top: 50%
+        left: 1.8em
+        transform: translateY(-50%)
+        filter: brightness(350%)
+
+.articleCon
+    clear: both
+    width: 100%
+    background: #fff
+    // overflow: auto
+.articleList
+  li.article_card
+    position: relative
+    margin-bottom: 3em
+    min-height: 400px
+    cursor: pointer
+    .article_img
+      width:100%
+      height: 0
+      padding: 0 30px
+      padding-bottom: 55%
+      overflow: hidden
+      background-color: $White
+      // box-sizing: border-box
+      img
+        max-width:100%
+        // border: 1px solid #efefef
+        background-color: $White
+    .article_Info
+      height: 21.5rem
+      border: 1px solid $Main-color
+      margin-top: -60px
+      padding: 30px
+      padding-top: 90px
+      font-weight: 00
+      line-height: 1.5
+      .article_type
+        font-size: 14px
+        color: $Main-color
+        margin-bottom: 1em
+        b
+          display: inline-block
+          padding: 0 10px
+        span
+          font-weight: 600  
+      h2
+        font-size: 24px
+        font-weight: 400
+        margin-bottom: .5em
+        +ellipsis
+        -webkit-line-clamp: 2
+        letter-spacing: 1.8px
+      p
+        font-weight: 300
+        color: #76716F
+        padding: 5px 0
+        line-height: 2
+        +ellipsis
+        -webkit-line-clamp: 2
+        letter-spacing: 1.8px
+      h5
+        position: absolute
+        right: 45px
+        bottom: 25px
+        // margin-top: 10px
+        text-align: right
+        color: $Main-color
+        letter-spacing: 2px
+        font-weight: 400
+        font-size: 14px
+      &:hover
+        +hover-transition
+        background-color: $Main-color
+        h2 , p , h5 , span,.article_type
+          color: $White
+.articleArea
+  display: flex
+  justify-content: space-between
+  .sidebar_list
+    width: 380px
+    margin-bottom: 40px
+    color: $Main-color
+    order: 2
+
+    position: sticky
+    top: 20px
+    max-height: 100vh
+    overflow-y: auto
+    nav
+      border: 1px solid $Main-color
+      padding: 1.8rem
+
+    .nav_title
+      font-size: 30px
+      margin-bottom: 1em
+    ul
+      li
+        line-height: 1.2
+        font-size: 1.25rem
+        opacity: 0.5
+        margin-bottom: 1em
+        padding-left: 1em
+        cursor: pointer
+        &.active
+          opacity: 1
+          // margin: 30px 0 20px 0
+          border-left: 5px solid $Main-color
+          padding-left: calc( 1em - 5px )
+          // font-size: 1.25rem
+          // line-height: 1.2
+  .side_content
+    width: 65%
+    padding-right: 20px
+  
 //RWD  
 @media screen and (max-width: 1366px)
   .features 
@@ -988,6 +1142,39 @@ ul.tabs li
     .info
       .title
         font-size: 25px
+
+  .articleList 
+    li.article_card 
+      .article_Info
+        height: auto
+        padding: 20px
+        padding-top: 80px
+        
+        h2
+          font-size: 20px
+        h5
+          position: relative
+          right: 10px
+          bottom: 5px
+          margin-top: 1em
+  .articleArea
+    display: block
+    .sidebar_list
+      width: 100%
+      
+      position: relative
+      top: 0
+      max-height: auto
+      overflow-y: auto
+      .nav_title
+        font-size: 24px
+      ul
+        li
+          font-size: 1rem
+    .side_content
+      width: 100%
+
+
 @media screen and (max-width: 667px) 
   .accordion 
     li .open
@@ -1059,3 +1246,34 @@ ul.tabs li
       left: 20px !important
   .article-content h5
     font-size: 14px
+
+  //ARTICLES
+  ul.tabs.article_tab
+    margin: 0
+    padding: 0
+    float: left
+    list-style: none
+    width: 100%
+    li
+      padding: 1em 1.3em
+      margin: 0 
+      font-size: 16px
+      &:hover
+        color: $Main-color
+      &.active
+        color: $White
+        background-color: $Main-color
+        display: block
+        padding-left: 2em
+        font-weight: 500
+        border-radius: 50px
+        &::before
+          content: ""
+          width: 20px
+          height: 20px
+          top: 50%
+          left: 1em
+          filter: brightness(350%)
+
+
+    
