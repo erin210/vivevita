@@ -1,6 +1,6 @@
 {
   "liveServer.settings.port": 5503,
-  "editor.wordWrap": "off",
+  "editor.wordWrap": "on",
   "liveServer.settings.donotVerifyTags": true,
   "liveServer.settings.donotShowInfoMsg": true,
   "[css]": {

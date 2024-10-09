@@ -1125,14 +1125,6 @@ ul.tabs.article_tab li.active::before {
   padding-left: 1em;
   cursor: pointer;
 }
-.articleArea .sidebar_list ul li.active {
-  opacity: 1;
-  border-left: 5px solid #2690C1;
-  padding-left: calc(1em - 5px);
-}
-.articleArea .sidebar_list ul li.active a {
-  color: #2690C1;
-}
 .articleArea .side_content {
   width: 65%;
   padding-right: 20px;
@@ -1273,6 +1265,14 @@ ul.tabs.article_tab li.active::before {
 @media screen and (min-width: 769px) {
   .mobile_banner {
     display: none;
+  }
+  .articleArea .sidebar_list ul li.active {
+    opacity: 1;
+    border-left: 5px solid #2690C1;
+    padding-left: calc(1em - 5px);
+  }
+  .articleArea .sidebar_list ul li.active a {
+    color: #2690C1;
   }
 }
 @media screen and (max-width: 768px) {

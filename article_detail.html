@@ -140,8 +140,10 @@
             $('#POST_DATE').text(formatDate(NewArticle[P_Index].Post_Date));
             $('#POST_TITLE').text(NewArticle[P_Index].article_Title);
             $('#Categories_Name').text(ALLCategories[C_Index].Categories_Name);
+            $('title').html(NewArticle[P_Index].article_Title + ' | Anthogenol®月光寶盒');
             
             $('#POST_INFO').html(base64toHTML(THIS_HTML));
+            
 
             //找H2
             var sidebarList=[]
@@ -166,11 +168,11 @@
             }
             $('#sideBarList li').on('click', function() {
                 const NN = $(this).index();
+                // console.log(NN);
                 
-                $('#POST_INFO h2').addClass('section'+(NN+1));
                 const targetPosition = $('#POST_INFO h2').eq(NN).offset().top - 20;
                 $('#sideBarList li').removeClass('active');
-                $(this).addClass('active');
+                $('#sideBarList li').eq(NN+1).addClass('active');
                 $('html, body').animate({
                     scrollTop: targetPosition
                 }, 500);
@@ -238,7 +240,12 @@
             //切換上下頁
             var POST_LEN = NewArticle.length;
             var thisINDEX = P_Index;
+            console.log(POST_LEN);
+            
 
+            if(POST_LEN<=1){
+                $('.arrow').hide();
+            }
             if (thisINDEX <= 0) {
                 $('#PREV').addClass('arrow-active');
                 event.preventDefault();
@@ -296,12 +303,12 @@
 
                 // 偵測 h2
                 $('h2').each(function() {
-                    const sectionTop = $(this).offset().top - 10;
+                    const sectionTop = $(this).offset().top - 30;
                     const sectionBottom = sectionTop + $(this).outerHeight();
                     const previousP = $(this).prev('p');
 
                     // 檢查 h2 範圍
-                    if ($(window).scrollTop() >= sectionTop || (previousP.length && $(window).scrollTop() >= previousP.offset().top - 10)) {
+                    if ($(window).scrollTop() >= sectionTop || (previousP.length && $(window).scrollTop() >= previousP.offset().top - 20)) {
                         const id = $(this).attr('id');
                         sidebarNav.find('a').parent('li').removeClass('active');
                         sidebarNav.find(`a[href="#${id}"]`).parent('li').addClass('active');
@@ -309,7 +316,6 @@
                 });
             }
         });
-
     </script>
 </body>
 
