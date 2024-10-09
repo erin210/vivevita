@@ -132,10 +132,7 @@
             var P_Index=Number(ARTICLE_RESULT.postIndex);//文章index
             var NewArticle =ARTICLE_RESULT.newSort;//排序好的文章
 
-            console.log(P_Index);
             
-            // console.log("新的：",NewArticle);
-            // console.log(NewArticle);
             
             var THIS_HTML = NewArticle[P_Index].article_html;
             
@@ -150,21 +147,27 @@
             var sidebarList=[]
             const h2TXT=$('#POST_INFO h2').eq(0).text();
             
-            console.log(h2TXT);
             for (let i = 0; i < $('#POST_INFO h2').length; i++) {
                 const item = $('#POST_INFO h2').eq(i);
                 const h2TXT=item.text();
                 sidebarList.push(h2TXT)
             }
-            // console.log(sidebarList);
             
-            sidebarList.forEach(item => {
-                const sidebarList=$('#sideBarList').append('<li>'+item+'</li>')
+            sidebarList.forEach((item, index) => {
+                const sidebarList=$('#sideBarList').append('<li><a href="#section'+(index+1)+'">'+item+'</li>')
             });
 
             $('#sideBarList li:first-child').addClass('active');
+
+            for (let i = 0; i < $('#POST_INFO h2').length; i++) {
+                const item = $('#POST_INFO h2').eq(i);
+                item.attr('id', 'section'+(i+1));
+
+            }
             $('#sideBarList li').on('click', function() {
                 const NN = $(this).index();
+                
+                $('#POST_INFO h2').addClass('section'+(NN+1));
                 const targetPosition = $('#POST_INFO h2').eq(NN).offset().top - 20;
                 $('#sideBarList li').removeClass('active');
                 $(this).addClass('active');
@@ -234,19 +237,11 @@
 
             //切換上下頁
             var POST_LEN = NewArticle.length;
-            console.log("文章數：", POST_LEN -1);
             var thisINDEX = P_Index;
-            console.log("第幾篇：", thisINDEX);
-            // var POST_THIS_ID=NewArticle[Number(PageCategory)].article_ID;
-            // console.log("文章ＩＤ：", POST_THIS_ID);
-
-
-
 
             if (thisINDEX <= 0) {
                 $('#PREV').addClass('arrow-active');
                 event.preventDefault();
-                // console.log("第一篇");
                 
             } else if (thisINDEX >= POST_LEN - 1) {
                 $('#NEXT').addClass('arrow-active');
@@ -288,7 +283,7 @@
 
         $("footer").load("./component/footer_con.html");
         
-        //選單sticky
+        // 選單 sticky 和 Scrollspy 效果
         $(window).on('scroll', function() {
             if ($(window).width() > 768) {
                 const sidebar = $('.articleArea .sidebar_list');
@@ -297,13 +292,22 @@
                 const scrollBottom = $(window).scrollTop() + $(window).height();
                 const navHeight = sidebarNav.outerHeight();
 
-                if (scrollBottom >= footerOffset) {
-                    sidebar.css('height', navHeight + 'px');
-                } else {
-                    sidebar.css('height', 'auto');
-                }
-            }
+                sidebar.css('height', navHeight + 'px');//設選單高度
 
+                // 偵測 h2
+                $('h2').each(function() {
+                    const sectionTop = $(this).offset().top - 10;
+                    const sectionBottom = sectionTop + $(this).outerHeight();
+                    const previousP = $(this).prev('p');
+
+                    // 檢查 h2 範圍
+                    if ($(window).scrollTop() >= sectionTop || (previousP.length && $(window).scrollTop() >= previousP.offset().top - 10)) {
+                        const id = $(this).attr('id');
+                        sidebarNav.find('a').parent('li').removeClass('active');
+                        sidebarNav.find(`a[href="#${id}"]`).parent('li').addClass('active');
+                    }
+                });
+            }
         });
 
     </script>

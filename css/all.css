@@ -1003,7 +1003,7 @@ ul.tabs.article_tab li.active::before {
   top: 50%;
   left: 1.8em;
   transform: translateY(-50%);
-  filter: brightness(350%);
+  filter: brightness(700%);
 }
 
 .articleCon {
@@ -1129,6 +1129,9 @@ ul.tabs.article_tab li.active::before {
   opacity: 1;
   border-left: 5px solid #2690C1;
   padding-left: calc(1em - 5px);
+}
+.articleArea .sidebar_list ul li.active a {
+  color: #2690C1;
 }
 .articleArea .side_content {
   width: 65%;
