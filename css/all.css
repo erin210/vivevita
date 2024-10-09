@@ -155,7 +155,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  transition: transform 0.2s, -webkit-transform 0.2s;
+  transition: transform 0.2s;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -166,11 +166,12 @@
 }
 .index-product .product .text h3 {
   font-weight: 400;
-  letter-spacing: 2.2px;
+  letter-spacing: 2px;
   text-align: center;
   line-height: 1.5;
 }
 .index-product .product .text h4 {
+  letter-spacing: 2px;
   color: #2690C1;
   margin-bottom: 10px;
   font-weight: 500;
@@ -281,7 +282,6 @@ a.index-blog .blogbox .imgbox img {
   top: 50%;
   left: 50%;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -341,11 +341,8 @@ a.index-blog:hover .blogbox .imgbox img {
 }
 .banner .swiper-banner .swiper-slide a {
   position: relative;
-  display: -webkit-box;
   display: flex;
-  -webkit-box-pack: center;
   justify-content: center;
-  -webkit-box-align: center;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -409,6 +406,7 @@ a.index-blog:hover .blogbox .imgbox img {
   letter-spacing: 2px;
 }
 .page-banner .p-title2 .time a {
+  font-weight: bold;
   color: #2690C1;
 }
 .page-banner .p-title2 .time a:hover {
@@ -494,7 +492,6 @@ a.index-blog:hover .blogbox .imgbox img {
   width: 13px;
   height: 13px;
   top: 50%;
-  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   left: 90px;
 }
@@ -552,7 +549,6 @@ a.index-blog:hover .blogbox .imgbox img {
   top: 50%;
   left: 50%;
   position: absolute;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 .product_card .product_card_text {
@@ -588,7 +584,6 @@ a.index-blog:hover .blogbox .imgbox img {
 }
 .product__carousel .gallery-top .swiper-slide a {
   position: relative;
-  display: -webkit-box;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -607,7 +602,6 @@ a.index-blog:hover .blogbox .imgbox img {
 }
 .product__carousel .gallery-thumbs .swiper-slide {
   position: relative;
-  -webkit-transition: border 0.15s linear;
   transition: border 0.15s linear;
   cursor: pointer;
   overflow: hidden;
@@ -618,7 +612,6 @@ a.index-blog:hover .blogbox .imgbox img {
   position: absolute;
   left: 50%;
   top: 50%;
-  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   max-width: 100%;
 }
@@ -696,7 +689,7 @@ hr {
 }
 .recommend-list .recommend-left {
   width: 30%;
-  height: 100%;
+  height: auto;
   overflow: hidden;
 }
 .recommend-list .recommend-left img {
@@ -725,7 +718,7 @@ hr {
   line-height: 1.3;
 }
 .recommend-list .recommend-right p {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 300;
   color: #76716F;
   margin-bottom: 4%;
@@ -768,7 +761,7 @@ hr {
   margin: 30px 0 20px 0;
   border-left: 5px solid #2690C1;
   padding-left: 10px;
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   line-height: 1.2;
 }
 .article-content p, .article-content h3, .article-content span {
@@ -776,8 +769,8 @@ hr {
   line-height: 1.8;
 }
 .article-content h3 {
-  margin: 8px 0;
-  font-size: 18px;
+  margin-top: 8px;
+  font-size: 16px;
   font-weight: 500;
 }
 .article-content h3::before {
@@ -788,6 +781,7 @@ hr {
   font-weight: 400;
   display: block;
   padding-left: 18px;
+  margin-bottom: 8px;
 }
 .article-content img {
   width: 100%;
@@ -855,7 +849,9 @@ hr {
   width: 100%;
   display: block;
   cursor: pointer;
-  user-select: none;
+  -webkit-user-select: none;
+     -moz-user-select: none;
+          user-select: none;
   background: #2690C1;
   padding: 30px 50px 30px 30px;
   letter-spacing: 1.8px;
@@ -880,8 +876,6 @@ hr {
   background-color: #ffffff;
   content: " ";
   position: absolute;
-  -webkit-transition: all 0.2s ease-in-out;
-  -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 .accordion .faqname span {
@@ -972,13 +966,12 @@ ul.tabs.article_tab li {
   float: left;
   margin: 0;
   cursor: pointer;
-  padding: 1.5em 2.3em;
   font-size: 16px;
+  padding: 15px 25px;
   font-weight: 400;
   color: #76716F;
   overflow: hidden;
   position: relative;
-  margin: 0 10px;
 }
 ul.tabs.article_tab li:hover {
   color: #2690C1;
@@ -987,8 +980,7 @@ ul.tabs.article_tab li.active {
   color: #ffffff;
   background-color: #2690C1;
   display: block;
-  padding-left: 3.4em;
-  font-weight: 500;
+  padding-left: 55px;
   border-radius: 50px;
 }
 ul.tabs.article_tab li.active::before {
@@ -1001,7 +993,7 @@ ul.tabs.article_tab li.active::before {
   width: 25px;
   height: 25px;
   top: 50%;
-  left: 1.8em;
+  left: 25px;
   transform: translateY(-50%);
   filter: brightness(700%);
 }
@@ -1012,71 +1004,67 @@ ul.tabs.article_tab li.active::before {
   background: #fff;
 }
 
-.articleList li.article_card {
+.articleList .article_card {
   position: relative;
-  margin-bottom: 3em;
+  margin-bottom: 2.5em;
   min-height: 400px;
   cursor: pointer;
 }
-.articleList li.article_card .article_img {
+.articleList .article_card a .article_img {
   width: 100%;
   height: 0;
   padding: 0 30px;
-  padding-bottom: 55%;
+  padding-bottom: 53%;
   overflow: hidden;
   background-color: #ffffff;
 }
-.articleList li.article_card .article_img img {
+.articleList .article_card a .article_img img {
   max-width: 100%;
   background-color: #ffffff;
 }
-.articleList li.article_card .article_Info {
-  height: 21.5rem;
+.articleList .article_card a .article_Info {
+  height: 20rem;
   border: 1px solid #2690C1;
   margin-top: -60px;
-  padding: 30px;
-  padding-top: 90px;
-  font-weight: 0;
-  line-height: 1.5;
+  padding: 80px 30px 30px 30px;
+  font-weight: 400;
+  line-height: 1.3;
 }
-.articleList li.article_card .article_Info .article_type {
+.articleList .article_card a .article_Info .article_type {
   font-size: 14px;
   color: #2690C1;
-  margin-bottom: 1em;
+  margin-bottom: 15px;
+  letter-spacing: 2px;
 }
-.articleList li.article_card .article_Info .article_type b {
+.articleList .article_card a .article_Info .article_type b {
   display: inline-block;
-  padding: 0 10px;
+  padding-right: 8px;
+  font-weight: 300;
 }
-.articleList li.article_card .article_Info .article_type span {
+.articleList .article_card a .article_Info .article_type span {
   font-weight: 600;
 }
-.articleList li.article_card .article_Info h2 {
+.articleList .article_card a .article_Info h2, .articleList .article_card a .article_Info p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  letter-spacing: 2px;
+}
+.articleList .article_card a .article_Info h2 {
   font-size: 24px;
   font-weight: 400;
-  margin-bottom: 0.5em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  letter-spacing: 1.8px;
+  margin-bottom: 25px;
 }
-.articleList li.article_card .article_Info p {
+.articleList .article_card a .article_Info p {
   font-weight: 300;
   color: #76716F;
-  padding: 5px 0;
-  line-height: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  letter-spacing: 1.8px;
+  font-size: 16px;
 }
-.articleList li.article_card .article_Info h5 {
+.articleList .article_card a .article_Info h5 {
   position: absolute;
-  right: 45px;
+  right: 60px;
   bottom: 25px;
   text-align: right;
   color: #2690C1;
@@ -1084,14 +1072,14 @@ ul.tabs.article_tab li.active::before {
   font-weight: 400;
   font-size: 14px;
 }
-.articleList li.article_card .article_Info:hover {
+.articleList .article_card a:hover .article_Info {
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
   -o-transition: all 0.3s ease-in-out;
   background-color: #2690C1;
 }
-.articleList li.article_card .article_Info:hover h2, .articleList li.article_card .article_Info:hover p, .articleList li.article_card .article_Info:hover h5, .articleList li.article_card .article_Info:hover span, .articleList li.article_card .article_Info:hover .article_type {
+.articleList .article_card a:hover .article_Info h2, .articleList .article_card a:hover .article_Info p, .articleList .article_card a:hover .article_Info h5, .articleList .article_card a:hover .article_Info span, .articleList .article_card a:hover .article_Info .article_type {
   color: #ffffff;
 }
 
@@ -1100,7 +1088,7 @@ ul.tabs.article_tab li.active::before {
   justify-content: space-between;
 }
 .articleArea .sidebar_list {
-  width: 380px;
+  width: 330px;
   margin-bottom: 40px;
   color: #2690C1;
   order: 2;
@@ -1118,12 +1106,22 @@ ul.tabs.article_tab li.active::before {
   margin-bottom: 1em;
 }
 .articleArea .sidebar_list ul li {
-  line-height: 1.2;
-  font-size: 1.25rem;
+  line-height: 1.5;
+  font-size: 1.2rem;
   opacity: 0.5;
-  margin-bottom: 1em;
+  margin-bottom: 16px;
   padding-left: 1em;
   cursor: pointer;
+  letter-spacing: 1.2px;
+}
+.articleArea .sidebar_list ul li.active {
+  opacity: 1;
+  border-left: 5px solid #2690C1;
+  padding-left: calc(1em - 5px);
+  font-weight: 500;
+}
+.articleArea .sidebar_list ul li a {
+  color: #2690C1;
 }
 .articleArea .side_content {
   width: 65%;
@@ -1215,9 +1213,12 @@ ul.tabs.article_tab li.active::before {
     height: 420px;
   }
   .recommend-list .recommend-right h2 {
-    font-size: 18px;
+    font-size: 20px;
   }
   .recommend-list .recommend-right h5 {
+    font-size: 14px;
+  }
+  .recommend-list .recommend-right p {
     font-size: 14px;
   }
   .article-content .recommend-info {
@@ -1261,18 +1262,29 @@ ul.tabs.article_tab li.active::before {
   .product_card .product_card_pic {
     padding-bottom: 100%;
   }
+  .articleList li.article_card .article_Info h2 {
+    font-size: 20px;
+  }
+  .articleList li.article_card .article_Info p {
+    font-size: 14px;
+  }
+  .articleArea .sidebar_list {
+    width: 270px;
+  }
+  .articleArea .sidebar_list nav {
+    padding: 1.1rem;
+  }
+  .articleArea .sidebar_list nav .nav_title {
+    font-size: 1.4rem;
+  }
+  .articleArea .sidebar_list nav ul li {
+    line-height: 1.3;
+    font-size: 1rem;
+  }
 }
 @media screen and (min-width: 769px) {
   .mobile_banner {
     display: none;
-  }
-  .articleArea .sidebar_list ul li.active {
-    opacity: 1;
-    border-left: 5px solid #2690C1;
-    padding-left: calc(1em - 5px);
-  }
-  .articleArea .sidebar_list ul li.active a {
-    color: #2690C1;
   }
 }
 @media screen and (max-width: 768px) {
@@ -1362,20 +1374,6 @@ ul.tabs.article_tab li.active::before {
   .page-about .info .title {
     font-size: 25px;
   }
-  .articleList li.article_card .article_Info {
-    height: auto;
-    padding: 20px;
-    padding-top: 80px;
-  }
-  .articleList li.article_card .article_Info h2 {
-    font-size: 20px;
-  }
-  .articleList li.article_card .article_Info h5 {
-    position: relative;
-    right: 10px;
-    bottom: 5px;
-    margin-top: 1em;
-  }
   .articleArea {
     display: block;
   }
@@ -1386,14 +1384,33 @@ ul.tabs.article_tab li.active::before {
     max-height: auto;
     overflow-y: auto;
   }
-  .articleArea .sidebar_list .nav_title {
-    font-size: 24px;
-  }
   .articleArea .sidebar_list ul li {
-    font-size: 1rem;
+    margin-bottom: 8px;
+    opacity: 0.8;
+  }
+  .articleArea .sidebar_list ul li.active {
+    opacity: 0.8;
+    border-left: 0;
+    padding-left: calc(1em - 0px);
+    font-weight: 400;
   }
   .articleArea .side_content {
     width: 100%;
+    padding-right: 0;
+  }
+}
+@media screen and (max-width: 767px) {
+  .articleList li.article_card .article_Info {
+    height: auto;
+  }
+  .articleList li.article_card .article_Info h2 {
+    margin-bottom: 15px;
+  }
+  .articleList li.article_card .article_Info h5 {
+    position: relative;
+    right: 10px;
+    bottom: 0px;
+    margin-top: 2em;
   }
 }
 @media screen and (max-width: 667px) {
@@ -1418,7 +1435,7 @@ ul.tabs.article_tab li.active::before {
     display: none;
   }
   .article-content h2 {
-    font-size: 1.1rem;
+    font-size: 1.2rem;
   }
   .article-content h3, .article-content span {
     font-size: 14px;
@@ -1435,10 +1452,10 @@ ul.tabs.article_tab li.active::before {
     font-size: 11px;
   }
   .page-banner .p-title2 h1 {
-    font-size: 18px;
+    font-size: 20px;
   }
   .page-banner .p-title2 .time {
-    font-size: 12px;
+    font-size: 14px;
   }
   .swiper-blog .swiper-slide:nth-child(even) {
     margin-top: 0px;
@@ -1460,6 +1477,17 @@ ul.tabs.article_tab li.active::before {
   }
   ul.tabs li {
     font-size: 14px;
+  }
+  ul.tabs.article_tab li {
+    font-size: 14px;
+    padding: 15px;
+    margin-right: 8px;
+  }
+  ul.tabs.article_tab li.active {
+    padding-left: 45px;
+  }
+  ul.tabs.article_tab li.active::before {
+    left: 15px;
   }
   .page-about {
     padding-top: 10%;
@@ -1485,36 +1513,5 @@ ul.tabs.article_tab li.active::before {
   }
   .article-content h5 {
     font-size: 14px;
-  }
-  ul.tabs.article_tab {
-    margin: 0;
-    padding: 0;
-    float: left;
-    list-style: none;
-    width: 100%;
-  }
-  ul.tabs.article_tab li {
-    padding: 1em 1.3em;
-    margin: 0;
-    font-size: 16px;
-  }
-  ul.tabs.article_tab li:hover {
-    color: #2690C1;
-  }
-  ul.tabs.article_tab li.active {
-    color: #ffffff;
-    background-color: #2690C1;
-    display: block;
-    padding-left: 2em;
-    font-weight: 500;
-    border-radius: 50px;
-  }
-  ul.tabs.article_tab li.active::before {
-    content: "";
-    width: 20px;
-    height: 20px;
-    top: 50%;
-    left: 1em;
-    filter: brightness(350%);
   }
 }/*# sourceMappingURL=all.css.map */

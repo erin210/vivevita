@@ -408,12 +408,6 @@ a.index-blog:hover .blogbox .imgbox img {
   font-size: 16px;
   letter-spacing: 2px;
 }
-.page-banner .p-title2 .time a {
-  color: #2690C1;
-}
-.page-banner .p-title2 .time a:hover {
-  filter: brightness(1.2);
-}
 
 .page-about .info {
   display: flex;
@@ -961,178 +955,6 @@ ul.tabs li.active::before {
   display: none;
 }
 
-ul.tabs.article_tab {
-  margin: 0;
-  padding: 0;
-  float: left;
-  list-style: none;
-  width: 100%;
-}
-ul.tabs.article_tab li {
-  float: left;
-  margin: 0;
-  cursor: pointer;
-  padding: 1.5em 2.3em;
-  font-size: 16px;
-  font-weight: 400;
-  color: #76716F;
-  overflow: hidden;
-  position: relative;
-  margin: 0 10px;
-}
-ul.tabs.article_tab li:hover {
-  color: #2690C1;
-}
-ul.tabs.article_tab li.active {
-  color: #ffffff;
-  background-color: #2690C1;
-  display: block;
-  padding-left: 3.4em;
-  font-weight: 500;
-  border-radius: 50px;
-}
-ul.tabs.article_tab li.active::before {
-  content: "";
-  position: absolute;
-  background-image: url(../img/moon.svg);
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 25px;
-  height: 25px;
-  top: 50%;
-  left: 1.8em;
-  transform: translateY(-50%);
-}
-.articleCon {
-  clear: both;
-  width: 100%;
-  background: #fff;
-}
-
-.articleList li.article_card {
-  position: relative;
-  margin-bottom: 3em;
-  min-height: 400px;
-  cursor: pointer;
-}
-.articleList li.article_card .article_img {
-  width: 100%;
-  height: 0;
-  padding: 0 30px;
-  padding-bottom: 55%;
-  overflow: hidden;
-  background-color: #ffffff;
-}
-.articleList li.article_card .article_img img {
-  max-width: 100%;
-  background-color: #ffffff;
-}
-.articleList li.article_card .article_Info {
-  height: 21.5rem;
-  border: 1px solid #2690C1;
-  margin-top: -60px;
-  padding: 30px;
-  padding-top: 90px;
-  font-weight: 0;
-  line-height: 1.5;
-}
-.articleList li.article_card .article_Info .article_type {
-  font-size: 14px;
-  color: #2690C1;
-  margin-bottom: 1em;
-}
-.articleList li.article_card .article_Info .article_type b {
-  display: inline-block;
-  padding: 0 10px;
-}
-.articleList li.article_card .article_Info .article_type span {
-  font-weight: 600;
-}
-.articleList li.article_card .article_Info h2 {
-  font-size: 24px;
-  font-weight: 400;
-  margin-bottom: 0.5em;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  letter-spacing: 1.8px;
-}
-.articleList li.article_card .article_Info p {
-  font-weight: 300;
-  color: #76716F;
-  padding: 5px 0;
-  line-height: 2;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-  -webkit-line-clamp: 2;
-  letter-spacing: 1.8px;
-}
-.articleList li.article_card .article_Info h5 {
-  position: absolute;
-  right: 45px;
-  bottom: 25px;
-  text-align: right;
-  color: #2690C1;
-  letter-spacing: 2px;
-  font-weight: 400;
-  font-size: 14px;
-}
-.articleList li.article_card .article_Info:hover {
-  -webkit-transition: all 0.3s ease-in-out;
-  -moz-transition: all 0.3s ease-in-out;
-  -ms-transition: all 0.3s ease-in-out;
-  -o-transition: all 0.3s ease-in-out;
-  background-color: #2690C1;
-}
-.articleList li.article_card .article_Info:hover h2, .articleList li.article_card .article_Info:hover p, .articleList li.article_card .article_Info:hover h5, .articleList li.article_card .article_Info:hover span, .articleList li.article_card .article_Info:hover .article_type {
-  color: #ffffff;
-}
-
-.articleArea {
-  display: flex;
-  justify-content: space-between;
-}
-.articleArea .sidebar_list {
-  width: 380px;
-  margin-bottom: 40px;
-  color: #2690C1;
-  order: 2;
-  position: sticky;
-  top: 20px;
-  max-height: 100vh;
-  overflow-y: auto;
-}
-.articleArea .sidebar_list nav {
-  border: 1px solid #2690C1;
-  padding: 1.8rem;
-}
-.articleArea .sidebar_list .nav_title {
-  font-size: 30px;
-  margin-bottom: 1em;
-}
-.articleArea .sidebar_list ul li {
-  line-height: 1.2;
-  font-size: 1.25rem;
-  opacity: 0.5;
-  margin-bottom: 1em;
-  padding-left: 1em;
-  cursor: pointer;
-}
-.articleArea .sidebar_list ul li.active {
-  opacity: 1;
-  border-left: 5px solid #2690C1;
-  padding-left: calc(1em - 5px);
-}
-.articleArea .side_content {
-  width: 65%;
-  padding-right: 20px;
-}
-
 @media screen and (max-width: 1366px) {
   .features .list .right, .features .list02 .right {
     padding: 5% 4%;
@@ -1357,39 +1179,6 @@ ul.tabs.article_tab li.active::before {
   .page-about .info .title {
     font-size: 25px;
   }
-  .articleList li.article_card .article_Info {
-    height: auto;
-    padding: 20px;
-    padding-top: 80px;
-  }
-  .articleList li.article_card .article_Info h2 {
-    font-size: 20px;
-  }
-  .articleList li.article_card .article_Info h5 {
-    position: relative;
-    right: 10px;
-    bottom: 5px;
-    margin-top: 1em;
-  }
-  .articleArea {
-    display: block;
-  }
-  .articleArea .sidebar_list {
-    width: 100%;
-    position: relative;
-    top: 0;
-    max-height: auto;
-    overflow-y: auto;
-  }
-  .articleArea .sidebar_list .nav_title {
-    font-size: 24px;
-  }
-  .articleArea .sidebar_list ul li {
-    font-size: 1rem;
-  }
-  .articleArea .side_content {
-    width: 100%;
-  }
 }
 @media screen and (max-width: 667px) {
   .accordion li .open {
@@ -1481,35 +1270,12 @@ ul.tabs.article_tab li.active::before {
   .article-content h5 {
     font-size: 14px;
   }
-  ul.tabs.article_tab {
-    margin: 0;
-    padding: 0;
-    float: left;
-    list-style: none;
-    width: 100%;
-  }
-  ul.tabs.article_tab li {
-    padding: 1em 1.3em;
-    margin: 0;
-    font-size: 16px;
-  }
-  ul.tabs.article_tab li:hover {
-    color: #2690C1;
-  }
-  ul.tabs.article_tab li.active {
-    color: #ffffff;
-    background-color: #2690C1;
-    display: block;
-    padding-left: 2em;
-    font-weight: 500;
-    border-radius: 50px;
-  }
-  ul.tabs.article_tab li.active::before {
-    content: "";
-    width: 20px;
-    height: 20px;
-    top: 50%;
-    left: 1em;
-    filter: brightness(350%);
-  }
+}
+.articleList .article_card .article_img {
+  width: 100%;
+  background-color: #f00;
+  border: 1px solid #f00;
+}
+.articleList .article_card .article_img img {
+  max-width: 100%;
 }/*# sourceMappingURL=all.css.map */
