@@ -7,7 +7,7 @@
     "editor.defaultFormatter": "vscode.css-language-features"
   },
   "files.autoSave": "afterDelay",
-  "editor.minimap.enabled": false,
+  "editor.minimap.enabled": true,
   "git.confirmSync": false,
   "git.autofetch": true,
   "liveSassCompile.settings.autoprefix": [],
