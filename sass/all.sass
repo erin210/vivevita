@@ -1,10 +1,27 @@
 @import 'tool'
 
+//button
+.btn
+  border: 1px solid $Main-color
+  font-size: 14px
+  letter-spacing: 2px
+  color: $Main-color
+  padding: 15px 60px
+  &:hover
+    background-color: $Main-color
+    color: $White
+
+// 共用高度
+.top-alla
+  padding: 5% 0
+.push
+  padding-top: 120px   
+ 
 //標題
 .title
   h1
     font-weight: 400
-    letter-spacing: 2.4px
+    letter-spacing: 2px
     line-height: 1.3
   span
     color: $Main-color
@@ -133,7 +150,7 @@
         text-align: center
         line-height: 1.5
       h4
-        letter-spacing: 2px
+        letter-spacing: 1px
         color: $Main-color
         margin-bottom: 10px
         font-weight: 500
@@ -208,7 +225,7 @@ article
             color: $White 
 .swiper-blog .swiper-slide:nth-child(even)
   margin-top: 60px
-a.index-blog
+.index-blog
   .blogbox
     padding: 40px 
     background: $Secondary-coloring
@@ -242,24 +259,8 @@ a.index-blog
     .blogbox .imgbox
       img
         transform: translate(-50%, -50%) scale(1.1)
-
-//button
-.btn
-  border: 1px solid $Main-color
-  font-size: 14px
-  letter-spacing: 2px
-  color: $Main-color
-  padding: 15px 60px
-  &:hover
-    background-color: $Main-color
-    color: $White
-
-
-// 共用高度
-.top-alla
-  padding: 5% 0
-.push
-  padding-top: 120px  
+    p
+      color: $Main-color 
    
 /*BANNER
 .banner
@@ -324,7 +325,7 @@ a.index-blog
   .p-title2 //文章內頁標題
     padding-top: 100px
     h1
-      font-size: 30px
+      // font-size: 30px
       letter-spacing: 2px
       color: $black
       font-weight: 400
@@ -641,7 +642,7 @@ hr
     padding-left: 10px
     font-size: 1.4rem
     line-height: 1.2
-  p , h3 , span
+  p , h3
     letter-spacing: 1.5px
     line-height: 1.8
   h3
@@ -650,7 +651,7 @@ hr
     font-weight: 500
     &::before
       content: '• '
-  span
+  h3+p
     color: $Sup-color
     font-weight: 400
     display: block
@@ -928,7 +929,7 @@ ul.tabs.article_tab
       padding: 1.8rem
 
     .nav_title
-      font-size: 30px
+      font-size: 1.9rem
       margin-bottom: 1em
     ul
       li
@@ -949,7 +950,85 @@ ul.tabs.article_tab
   .side_content
     width: 65%
     padding-right: 20px
-  
+
+//CTA
+.cta
+  background-color: $Secondary-coloring
+  .info
+    display: flex
+    min-height: 400px
+    .left
+      position: relative
+      width: 35%
+      img
+        position: absolute
+        bottom: 0
+        left: 0
+        top: -15%
+        max-width: 100%
+    .mid
+      width: 45%
+      display: flex
+      flex-direction: column
+      align-items: center
+      justify-content: center
+      .pic
+        padding-bottom: 50px
+        text-align: center
+        img
+          width: 90%
+      .button
+        border: 1px solid $Main-color
+        border-radius: 50px
+        padding: 20px 80px
+        cursor: pointer
+        text-align: center
+        p
+          white-space: nowrap
+          font-size: 26px
+          color: $Main-color
+          letter-spacing: 1.2px
+          span
+            font-weight: 600
+        &:hover
+          +hover-transition
+          background-color: $Main-color
+          p
+            color: $White
+    .right
+      position: relative
+      width: 20%
+      img
+        position: absolute
+        max-width: 80%
+        mix-blend-mode: multiply
+        right: 0
+        top: -10%
+
+//MAYLIKE
+.maylike
+  .blogbox2
+    padding: 20px
+    .imgbox
+      padding-bottom: 67%
+  .time
+    display: flex
+    margin: 15px 0 10px 0
+    span
+      letter-spacing: 2px
+      font-size: 14px
+      color: $Main-color
+      &:nth-child(3)
+        font-weight: bold
+  p
+    padding-top: 0
+  .swiper-blog .swiper-slide:nth-child(even)
+    margin-top: 0px
+  .swiper-button-next, .swiper-button-prev
+    top: 38%
+
+
+
 //RWD  
 @media screen and (max-width: 1366px)
   .features 
@@ -986,6 +1065,7 @@ ul.tabs.article_tab
     .list
       width: 100%
       margin-bottom: 280px
+      margin-top: 40px
       .row
         width: 100%
         .right
@@ -1083,6 +1163,24 @@ ul.tabs.article_tab
       ul li
         line-height: 1.3
         font-size: 1rem
+  .cta 
+    .info 
+      min-height: auto
+      padding: 50px 0
+      .left img
+        top: -50%
+        max-width: 90%
+      .mid 
+        .pic
+          padding-bottom: 30px
+          img
+            width: 80%
+        .button
+          padding: 15px 50px
+          p
+            font-size: 20px
+      .right img
+        top: -45%
 
 @media screen and (min-width: 769px)
   .mobile_banner
@@ -1102,18 +1200,18 @@ ul.tabs.article_tab
   .mobile_banner
     padding-top: 80px
   .title h1
-    font-size: 25px
+    font-size: 24px
   .features .list .row
     .right .info 
       p
         font-size: 14px
   .index-product .product .text h3
     font-size: 14px
-  a.index-blog
+  .index-blog
     .blogbox 
       padding: 25px
     p
-      font-size: 14px
+      font-size: 16px
   .swiper-blog .swiper-slide:nth-child(even)
     margin-top: 30px
   article
@@ -1179,6 +1277,7 @@ ul.tabs.article_tab
     .side_content
       width: 100%
       padding-right: 0
+
 @media screen and (max-width: 767px) 
   .articleList 
     li.article_card 
@@ -1271,33 +1370,22 @@ ul.tabs.article_tab
       left: 20px !important
   .article-content h5
     font-size: 14px
-
-  //ARTICLES
-  // ul.tabs.article_tab
-  //   margin: 0
-  //   padding: 0
-  //   float: left
-  //   list-style: none
-  //   width: 100%
-  //   li
-  //     padding: 1em 1.3em
-  //     margin: 0 
-  //     font-size: 16px
-  //     &:hover
-  //       color: $Main-color
-  //     &.active
-  //       color: $White
-  //       background-color: $Main-color
-  //       display: block
-  //       padding-left: 2em
-  //       font-weight: 500
-  //       border-radius: 50px
-  //       &::before
-  //         content: ""
-  //         width: 20px
-  //         height: 20px
-  //         top: 50%
-  //         left: 1em
+  .cta
+    .info
+      .left , .right
+        display: none
+      .mid
+        width: 100%
+        .pic img
+          width: 68%
+        .button
+          padding: 15px 25px
+  .maylike
+    .title h1
+      font-size: 20px
+    .swiper-button-next, .swiper-button-prev
+      top: 41%
+      
 
 
     
