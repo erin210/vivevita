@@ -122,7 +122,7 @@
         </article>
 
         <!-- 相關文章 -->
-        <article>
+        <article id="otherArticle">
             <section class="maylike mb-5 top-alla">
                 <div class="container">
                     <div class="title text-center mb-4 mb-lg-5 wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.5s">
@@ -131,69 +131,7 @@
                     </div>
                     <div class="swiper-container wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
                         <div class="swiper-blog">
-                            <div class="swiper-wrapper">
-                                <!--start -->
-                                <div class="swiper-slide">
-                                    <a href="article_detail.html?id=a010001&category=a01" class="index-blog">
-                                        <div class="blogbox blogbox2">
-                                            <div class="imgbox">
-                                                <img src="upload/n05.jpg" alt="" title="">
-                                            </div>
-                                        </div>
-                                        <div class="time">
-                                            <span>2024.10.11</span>
-                                            <span>｜</span>
-                                            <span>美容健康</span>
-                                        </div>
-                                        <p>葡萄籽怎麼吃？什麼時候吃？葡萄籽保健食品功效好嗎？</p>
-                                    </a>
-                                </div>
-                                <!--end-->
-                                <div class="swiper-slide">
-                                    <a href="article_detail.html?id=a010001&category=a01" class="index-blog">
-                                        <div class="blogbox blogbox2">
-                                            <div class="imgbox">
-                                                <img src="upload/article_detail/a010001-1.jpg" alt="" title="">
-                                            </div>
-                                        </div>
-                                        <div class="time">
-                                            <span>2024.10.11</span>
-                                            <span>｜</span>
-                                            <span>美容健康</span>
-                                        </div>
-                                        <p>葡萄籽怎麼吃？什麼時候吃？葡萄籽保健食品功效好嗎？</p>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="article_detail.html?id=a010001&category=a01" class="index-blog">
-                                        <div class="blogbox blogbox2">
-                                            <div class="imgbox">
-                                                <img src="upload/article_detail/a010001-1.jpg" alt="" title="">
-                                            </div>
-                                        </div>
-                                        <div class="time">
-                                            <span>2024.10.11</span>
-                                            <span>｜</span>
-                                            <span>美容健康</span>
-                                        </div>
-                                        <p>葡萄籽怎麼吃？什麼時候吃？葡萄籽保健食品功效好嗎？</p>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="article_detail.html?id=a010001&category=a01" class="index-blog">
-                                        <div class="blogbox blogbox2">
-                                            <div class="imgbox">
-                                                <img src="upload/article_detail/a010001-1.jpg" alt="" title="">
-                                            </div>
-                                        </div>
-                                        <div class="time">
-                                            <span>2024.10.11</span>
-                                            <span>｜</span>
-                                            <span>美容健康</span>
-                                        </div>
-                                        <p>葡萄籽怎麼吃？什麼時候吃？葡萄籽保健食品功效好嗎？</p>
-                                    </a>
-                                </div>
+                            <div class="swiper-wrapper" id="other_recommend">
                             </div>
                             <div class="index-swiper">
                                 <div class="swiper-button-next"></div>
@@ -268,18 +206,17 @@
         var CategoryID = urlParams.get('category');//分類
         var ArticleID = urlParams.get('id');//文章ID
 
+        console.log("cID",CategoryID);
+        console.log("aID",ArticleID);
+        
+
         $.getJSON("article.json", function (json) {
             var ALLCategories = json.Categories;
             var ARTICLE_RESULT = GetCategoryID(CategoryID, ArticleID);
-            
             var C_Index=Number(ARTICLE_RESULT.categoryIndex);//分類index
             var P_Index=Number(ARTICLE_RESULT.postIndex);//文章index
             var NewArticle =ARTICLE_RESULT.newSort;//排序好的文章
-
-            
-            
             var THIS_HTML = NewArticle[P_Index].article_html;
-            
 
             $('#POST_DATE').text(formatDate(NewArticle[P_Index].Post_Date));
             $('#POST_TITLE').text(NewArticle[P_Index].article_Title);
@@ -312,7 +249,6 @@
             }
             $('#sideBarList li').on('click', function() {
                 const NN = $(this).index();
-                // console.log(NN);
                 
                 const targetPosition = $('#POST_INFO h2').eq(NN).offset().top - 20;
                 $('#sideBarList li').removeClass('active');
@@ -322,7 +258,34 @@
                 }, 500);
             });
 
-            //找ＪＳＯＮ對應位置
+            //相關文章
+            var NewPostList = NewArticle.map(item => item.article_ID == ArticleID ? null : item); 
+
+            NewPostList.forEach((data) => {
+                if (data !== null) {
+                    const OTHER_POST_HTML=`
+                        <div class="swiper-slide">
+                            <a href="article_detail.html?id=`+data.article_ID+`&category=`+CategoryID+`" class="index-blog">
+                                <div class="blogbox blogbox2">
+                                    <div class="imgbox">
+                                        <img src="`+data.article_Main_IMG+`" alt="" title="">
+                                    </div>
+                                </div>
+                                <div class="time">
+                                    <span>`+ formatDate(data.Post_Date) + `</span>
+                                    <span>｜</span>
+                                    <span>BLOG</span>
+                                </div>
+                                <p>`+ data.article_Title + `</p>
+                            </a>
+                        </div>
+                    `;
+                $('#other_recommend').append(OTHER_POST_HTML);
+                }
+            });
+            swiper.update();
+
+            //找JSON對應位置
             function GetCategoryID(cID, pID) {
                 for (let i = 0; i < json.Categories.length; i++) {
                     if (json.Categories[i].Categories_ID === cID) {
@@ -363,7 +326,6 @@
                 };
             }
 
-
             // 格式化日期
             function formatDate(dateString) {
                 let date = new Date(dateString);
@@ -389,6 +351,7 @@
 
             if(POST_LEN<=1){
                 $('.arrow').hide();
+                $('#otherArticle').hide();
             }
             if (thisINDEX <= 0) {
                 $('#PREV').addClass('arrow-active');

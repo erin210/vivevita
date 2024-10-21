@@ -121,69 +121,7 @@
                     </div>
                     <div class="swiper-container wow fadeInUp" data-wow-duration="1s" data-wow-delay="0.8s">
                         <div class="swiper-blog">
-                            <div class="swiper-wrapper">
-                                <!--start -->
-                                <div class="swiper-slide">
-                                    <a href="article_detail.html?id=a010001&category=a01" class="index-blog">
-                                        <div class="blogbox blogbox2">
-                                            <div class="imgbox">
-                                                <img src="upload/n05.jpg" alt="" title="">
-                                            </div>
-                                        </div>
-                                        <div class="time">
-                                            <span>2024.10.11</span>
-                                            <span>｜</span>
-                                            <span>美容健康</span>
-                                        </div>
-                                        <p>葡萄籽怎麼吃？什麼時候吃？葡萄籽保健食品功效好嗎？</p>
-                                    </a>
-                                </div>
-                                <!--end-->
-                                <div class="swiper-slide">
-                                    <a href="article_detail.html?id=a010001&category=a01" class="index-blog">
-                                        <div class="blogbox blogbox2">
-                                            <div class="imgbox">
-                                                <img src="upload/article_detail/a010001-1.jpg" alt="" title="">
-                                            </div>
-                                        </div>
-                                        <div class="time">
-                                            <span>2024.10.11</span>
-                                            <span>｜</span>
-                                            <span>美容健康</span>
-                                        </div>
-                                        <p>葡萄籽怎麼吃？什麼時候吃？葡萄籽保健食品功效好嗎？</p>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="article_detail.html?id=a010001&category=a01" class="index-blog">
-                                        <div class="blogbox blogbox2">
-                                            <div class="imgbox">
-                                                <img src="upload/article_detail/a010001-1.jpg" alt="" title="">
-                                            </div>
-                                        </div>
-                                        <div class="time">
-                                            <span>2024.10.11</span>
-                                            <span>｜</span>
-                                            <span>美容健康</span>
-                                        </div>
-                                        <p>葡萄籽怎麼吃？什麼時候吃？葡萄籽保健食品功效好嗎？</p>
-                                    </a>
-                                </div>
-                                <div class="swiper-slide">
-                                    <a href="article_detail.html?id=a010001&category=a01" class="index-blog">
-                                        <div class="blogbox blogbox2">
-                                            <div class="imgbox">
-                                                <img src="upload/article_detail/a010001-1.jpg" alt="" title="">
-                                            </div>
-                                        </div>
-                                        <div class="time">
-                                            <span>2024.10.11</span>
-                                            <span>｜</span>
-                                            <span>美容健康</span>
-                                        </div>
-                                        <p>葡萄籽怎麼吃？什麼時候吃？葡萄籽保健食品功效好嗎？</p>
-                                    </a>
-                                </div>
+                            <div class="swiper-wrapper" id="other_recommend">
                             </div>
                             <div class="index-swiper">
                                 <div class="swiper-button-next"></div>
@@ -327,6 +265,34 @@
                     $(this).attr('href', url);
                 }
             });
+        
+            
+            //相關文章
+            var NewPostList = NewBlog.map(item => item.ID == Number(PageID) ? null : item); 
+
+            NewPostList.forEach((data, index) => {
+                if (data !== null) {
+                    const OTHER_POST_HTML=`
+                        <div class="swiper-slide">
+                            <a href="recommend_detail.html?index=` + index + `&id=` + data.ID +`" class="index-blog">
+                                <div class="blogbox blogbox2">
+                                    <div class="imgbox">
+                                        <img src="`+data.BlogPicURL+`" alt="" title="">
+                                    </div>
+                                </div>
+                                <div class="time">
+                                    <span>`+ formatDate(data.PostDate) + `</span>
+                                    <span>｜</span>
+                                    <span>BLOG</span>
+                                </div>
+                                <p>`+ data.PostTitle + `</p>
+                            </a>
+                        </div>
+                    `;
+                $('#other_recommend').append(OTHER_POST_HTML);
+                }
+            });
+            swiper.update();
         });
 
         // 格式化日期
