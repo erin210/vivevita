@@ -175,7 +175,7 @@
   left: 0;
   right: 0;
   margin: auto;
-  transition: transform 0.2s;
+  transition: transform 0.2s, -webkit-transform 0.2s;
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
   -ms-transition: all 0.3s ease-in-out;
@@ -302,6 +302,7 @@ article section .container .swiper-container .swiper-blog .swiper-button-next:af
   top: 50%;
   left: 50%;
   position: absolute;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   -webkit-transition: all 0.3s ease-in-out;
   -moz-transition: all 0.3s ease-in-out;
@@ -344,8 +345,11 @@ article section .container .swiper-container .swiper-blog .swiper-button-next:af
 }
 .banner .swiper-banner .swiper-slide a {
   position: relative;
+  display: -webkit-box;
   display: flex;
+  -webkit-box-pack: center;
   justify-content: center;
+  -webkit-box-align: center;
   align-items: center;
   width: 100%;
   height: 100%;
@@ -494,6 +498,7 @@ article section .container .swiper-container .swiper-blog .swiper-button-next:af
   width: 13px;
   height: 13px;
   top: 50%;
+  -webkit-transform: translateY(-50%);
   transform: translateY(-50%);
   left: 90px;
 }
@@ -551,6 +556,7 @@ article section .container .swiper-container .swiper-blog .swiper-button-next:af
   top: 50%;
   left: 50%;
   position: absolute;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
 }
 .product_card .product_card_text {
@@ -586,6 +592,7 @@ article section .container .swiper-container .swiper-blog .swiper-button-next:af
 }
 .product__carousel .gallery-top .swiper-slide a {
   position: relative;
+  display: -webkit-box;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -604,6 +611,7 @@ article section .container .swiper-container .swiper-blog .swiper-button-next:af
 }
 .product__carousel .gallery-thumbs .swiper-slide {
   position: relative;
+  -webkit-transition: border 0.15s linear;
   transition: border 0.15s linear;
   cursor: pointer;
   overflow: hidden;
@@ -614,6 +622,7 @@ article section .container .swiper-container .swiper-blog .swiper-button-next:af
   position: absolute;
   left: 50%;
   top: 50%;
+  -webkit-transform: translate(-50%, -50%);
   transform: translate(-50%, -50%);
   max-width: 100%;
 }
@@ -772,18 +781,22 @@ hr {
 }
 .article-content h3 {
   margin-top: 8px;
+  line-height: 3.2;
   font-size: 16px;
   font-weight: 500;
 }
 .article-content h3::before {
   content: "• ";
 }
-.article-content h3 + p {
+.article-content h3 ~ p {
   color: #76716F;
   font-weight: 400;
   display: block;
   padding-left: 18px;
-  margin-bottom: 8px;
+}
+.article-content h2 + p {
+  color: #000000;
+  padding-left: 0;
 }
 .article-content img {
   width: 100%;
@@ -851,9 +864,7 @@ hr {
   width: 100%;
   display: block;
   cursor: pointer;
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
+  user-select: none;
   background: #2690C1;
   padding: 30px 50px 30px 30px;
   letter-spacing: 1.8px;
@@ -878,6 +889,8 @@ hr {
   background-color: #ffffff;
   content: " ";
   position: absolute;
+  -webkit-transition: all 0.2s ease-in-out;
+  -moz-transition: all 0.2s ease-in-out;
   transition: all 0.2s ease-in-out;
 }
 .accordion .faqname span {
