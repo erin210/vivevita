@@ -1,0 +1,102 @@
+{
+    "Categories": [
+        {
+            "Categories_ID":"c01",
+            "Categories_Name": "保健食品",
+            "product_List": [
+                {
+                    "Product_ID":"c010001",
+                    "Product_Brand": "Anthogenol®月光寶盒",
+                    "Product_Name": "葡萄籽原花青素膠囊100粒",
+                    "Product_Content_QTY":"100",
+                    "Product_Detail": "<p>► 食用方法： <br> 1.日常保養建議每日兩粒，建議於早餐前半小時以溫水服用<br> 2.如需加強保養建議每日三粒，每次用餐前半小時以溫開水服用</p> <p>► 內容量：100粒入</p> <p>► 原產地：澳洲</p> <p>► 製造商：<a target='_blank' href='https://www.phytologic.com.au/'>Phytologic Holdings Pty Ltd</a></p> <p>► 保存方式：請置於陰涼乾燥處(25 °C以下)，避免受潮、高溫與陽光直射</p> <p>► 注意事項： <br> 1.本產品不可替代藥品；<br> 2.不建議18歲以下未成年人或是備孕期婦女、孕婦、哺乳期婦女食用；<br> 3.開封後為維持產品新鮮度，請盡速食用完畢；<br> 4.膠囊本身個別密封於包裝內，如包裝已破損，請勿食用；<br> 5.素食者可食用。 </p>",
+                    "Product_Ｃurrency": "NT$",
+                    "Product_Price": 2200,
+                    "Product_Original_Price": 4200,
+                    "Product_URL": "https://shope.ee/A9pRmXJQiz",
+                    "Product_Main_Img": "upload/product01.png",
+                    "Product_IMG": [
+                        {
+                            "Img_SRC": "upload/pd100-01.png"
+                        },
+                        {
+                            "Img_SRC": "upload/pd100-02.png"
+                        },
+                        {
+                            "Img_SRC": "upload/pd100-03.png"
+                        },
+                        {
+                            "Img_SRC": "upload/pd100-04.png"
+                        },
+                        {
+                            "Img_SRC": "upload/pd100-05.png"
+                        }
+                    ],
+                    "Product_Landing_PIC": [
+                        {
+                            "Pic_SRC": "upload/landing01.jpg"
+                        },
+                        {
+                            "Pic_SRC": "upload/landing02.jpg"
+                        },
+                        {
+                            "Pic_SRC": "upload/landing03.jpg"
+                        },
+                        {
+                            "Pic_SRC": "upload/landing04.jpg"
+                        },
+                        {
+                            "Pic_SRC": "upload/landing05.jpg"
+                        }
+                    ]
+                },
+                {
+                    "Product_ID":"c010002",
+                    "Product_Brand": "Anthogenol®月光寶盒",
+                    "Product_Name": "葡萄籽原花青素膠囊30粒",
+                    "Product_Content_QTY":"30",
+                    "Product_Detail": "<p>► 食用方法： <br> 1.日常保養建議每日兩粒，建議於早餐前半小時以溫水服用<br> 2.如需加強保養建議每日三粒，每次用餐前半小時以溫開水服用</p> <p>► 內容量：30粒入</p> <p>► 原產地：澳洲</p> <p>► 製造商： <a target='_blank' href='https://www.phytologic.com.au/'>Phytologic Holdings Pty Ltd</a></p> <p>► 保存方式：請置於陰涼乾燥處(25 °C以下)，避免受潮、高溫與陽光直射</p> <p>► 注意事項： <br> 1.本產品不可替代藥品；<br> 2.不建議18歲以下未成年人或是備孕期婦女、孕婦、哺乳期婦女食用；<br> 3.開封後為維持產品新鮮度，請盡速食用完畢；<br> 4.膠囊本身個別密封於包裝內，如包裝已破損，請勿食用；<br> 5.素食者可食用。 </p>",
+                    "Product_Ｃurrency": "NT$",
+                    "Product_Price": 990,
+                    "Product_Original_Price": 1850,
+                    "Product_URL": "https://shope.ee/A9pRmXJQiz",
+                    "Product_Main_Img": "upload/product02.png",
+                    "Product_IMG": [
+                        {
+                            "Img_SRC": "upload/pd30-01.png"
+                        },
+                        {
+                            "Img_SRC": "upload/pd30-02.png"
+                        },
+                        {
+                            "Img_SRC": "upload/pd30-03.png"
+                        },
+                        {
+                            "Img_SRC": "upload/pd30-04.png"
+                        },
+                        {
+                            "Img_SRC": "upload/pd30-05.png"
+                        }
+                    ],
+                    "Product_Landing_PIC": [
+                        {
+                            "Pic_SRC": "upload/landing01.jpg"
+                        },
+                        {
+                            "Pic_SRC": "upload/landing02.jpg"
+                        },
+                        {
+                            "Pic_SRC": "upload/landing03.jpg"
+                        },
+                        {
+                            "Pic_SRC": "upload/landing04.jpg"
+                        },
+                        {
+                            "Pic_SRC": "upload/landing05.jpg"
+                        }
+                    ]
+                }
+            ]
+        }
+    ]
+}

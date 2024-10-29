@@ -13,7 +13,7 @@
   "liveSassCompile.settings.autoprefix": [],
   "liveSassCompile.settings.formats":[
       {
-        "savePath": "./css/",
+        "savePath": "./public/css/",
         "editor.tabSize": 2,
         "editor.insertSpaces": true
       }

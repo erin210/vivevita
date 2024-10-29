@@ -1,0 +1,6 @@
+[canvas=container],
+[off-canvas] {}
+
+[class*=js-] {
+    cursor: pointer;
+}

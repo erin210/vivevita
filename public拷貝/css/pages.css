@@ -1,0 +1,85 @@
+@charset "utf-8";
+
+/*title*/
+	div.title {}
+	div.title>h1,
+	div.title>h2 {color: #353535;}
+	div.title>h1>span:first-of-type,
+	div.title>h2>span:first-of-type {margin-right: .5rem;}
+	div.title>h1>span:last-of-type,
+	div.title>h2>span:last-of-type {font-size: 1.5rem; font-weight: 400; color: #0e8dd9;}
+
+/*news*/
+	section.news {margin-bottom: 8rem;}
+	dl.News {margin-bottom: 2rem;}
+	dl.News>dd {margin-bottom: 2rem;}
+	dl.News>dd>div {
+		border: 1px solid #cdcdcd;
+		text-align: justify;
+		padding: .75rem;
+	}
+	dl.News>dd>div>span {color: #0e8dd9;}
+	dl.News>dd>div>p {
+		line-height: 1.75rem;
+		margin-top: .85rem;
+		margin-bottom: 0;
+		/*多行文字限制*/
+		display: block; /*如果不是區塊元素的話，要加這一行 exsample <span>*/
+		overflow: hidden;
+		display: -webkit-box;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3; /*N 填入要顯示的行數*/
+	}
+
+/*download*/
+	section.download button {}
+	section.download button::after {
+		content: "\f019":;
+	}
+
+/*faq*/
+	div.faq {
+		border: 1px solid #221e1f !important;
+		border-radius: .5rem;
+		margin-bottom: 1.5rem
+	}
+	div.faqHeader {border-bottom: none !important}
+	button.faq {text-align: left}
+	button.faq::before {content: "\f059";}
+	button.faq>p {margin-bottom: 0}
+	button.faq>p>span {
+		background: #9b9b9b;
+		border-radius: .25rem;
+		color: #fff;
+		margin-right: .5rem;
+		padding: .25rem .5rem
+	}
+	div.faqContent {border-top: 1px solid #ddd}
+
+/*contact*/
+	dl.contactInfo>dd>span {color: #0e8dd9;}
+	dl.contactInfo>dd>span::before {
+		font-weight: 900;
+		margin-right: .5rem;
+	}
+	dl.contactInfo>dd:nth-of-type(1)>span::before {
+		content: "\f095";
+	}
+	dl.contactInfo>dd:nth-of-type(2)>span::before {
+		content: "\f3cd";
+		padding: 0 3px;
+	}
+	dl.contactInfo>dd:nth-of-type(3)>span::before {
+		content: "\f1ac";
+	}
+	dl.contactInfo>dd:nth-of-type(4)>span::before {
+		content: "\f0e0";
+	}
+	dl.contactInfo>dd:nth-of-type(5)>span::before {
+		content: "\f3c5";
+		padding: 0 2px;
+	}
+	div.map>iframe {width: 100% !important; height: 50vh;}
+
+/*products*/
+	dl.listImg {}
