@@ -167,6 +167,8 @@
 
             new WOW().init();
         });
+        //
+        
 
         //相關文章
         let SwiperCondition_1 = {
@@ -210,6 +212,9 @@
         var CategoryID = urlArray[2];//分類
         var ArticleID = urlArray[3];//文章ID
 
+
+        
+
         // console.log("cID",CategoryID);
         // console.log("aID",ArticleID);
 
@@ -236,7 +241,6 @@
             $('title').html(NewArticle[P_Index].article_Title + ' | Anthogenol®月光寶盒');
             
             $('#POST_INFO').html(base64toHTML(THIS_HTML));
-            
 
             //找H2
             var sidebarList=[]
@@ -259,10 +263,9 @@
                 item.attr('id', 'section'+(i+1));
 
             }
+            
             $('#sideBarList li').on('click', function() {
                 const NN = $(this).index();
-                // console.log(NN);
-                
                 const targetPosition = $('#POST_INFO h2').eq(NN).offset().top - 20;
                 $('#sideBarList li').removeClass('active');
                 $('#sideBarList li').eq(NN+1).addClass('active');
@@ -270,6 +273,8 @@
                     scrollTop: targetPosition
                 }, 500);
             });
+
+            
 
             //相關文章
             var NewPostList = NewArticle.map(item => item.article_ID == ArticleID ? null : item); 
@@ -409,33 +414,62 @@
         }
 
         $("footer").load("./component/footer_con.html");
+
         
-        // 選單 sticky 和 Scrollspy 效果
-        $(window).on('scroll', function() {
-            if ($(window).width() > 768) {
-                const sidebar = $('.articleArea .sidebar_list');
-                const sidebarNav = sidebar.find('nav');
-                // const footerOffset = $('.arrow').offset().top;
-                const scrollBottom = $(window).scrollTop() + $(window).height();
-                const navHeight = sidebarNav.outerHeight();
+        
+            // 選單 sticky 和 Scrollspy 效果
+            $(window).on('scroll', function() {
+                if ($(window).width() > 768) {
+                    const sidebar = $('.articleArea .sidebar_list');
+                    const sidebarNav = sidebar.find('nav');
+                    // const footerOffset = $('.arrow').offset().top;
+                    const scrollBottom = $(window).scrollTop() + $(window).height();
+                    const navHeight = sidebarNav.outerHeight();
 
-                sidebar.css('height', navHeight + 'px');//設選單高度
+                    sidebar.css('height', navHeight + 'px');//選單高度
+                    // 偵測 h2
+                    $('h2').each(function() {
+                        const sectionTop = $(this).offset().top - 30;
+                        const sectionBottom = sectionTop + $(this).outerHeight();
+                        const previousP = $(this).prev('p');
 
-                // 偵測 h2
-                $('h2').each(function() {
-                    const sectionTop = $(this).offset().top - 30;
-                    const sectionBottom = sectionTop + $(this).outerHeight();
-                    const previousP = $(this).prev('p');
+                        // 檢查 h2 範圍
+                        if ($(window).scrollTop() >= sectionTop || (previousP.length && $(window).scrollTop() >= previousP.offset().top - 20)) {
+                            const id = $(this).attr('id');
+                            sidebarNav.find('a').parent('li').removeClass('active');
+                            sidebarNav.find(`a[href="#${id}"]`).parent('li').addClass('active');
+                        }
+                    });
+                }
+            });
+            $(window).on('load', function() {
+                setTimeout(function() {
+                    const hash = window.location.hash;
+                    const sectionNumber = hash.match(/#section(\d+)/);
 
-                    // 檢查 h2 範圍
-                    if ($(window).scrollTop() >= sectionTop || (previousP.length && $(window).scrollTop() >= previousP.offset().top - 20)) {
-                        const id = $(this).attr('id');
-                        sidebarNav.find('a').parent('li').removeClass('active');
-                        sidebarNav.find(`a[href="#${id}"]`).parent('li').addClass('active');
+                    if (sectionNumber) {
+                        // console.log("Matched section number:", sectionNumber[1]);
+                        const targetElement = $(`#section${sectionNumber[1]}`);
+
+                        if (targetElement.length) {
+                            const initialTargetPosition = targetElement.offset().top - 20;
+                            console.log("Target position:", initialTargetPosition);
+
+                            $('html, body').animate({
+                                scrollTop: initialTargetPosition
+                            }, 500);
+                        } else {
+                            console.warn(`Element #section${sectionNumber[1]} 不存在`);
+                        }
+                    } else {
+                        console.warn("未找到 section 數字");
                     }
-                });
-            }
-        });
+                }, 100); 
+            });
+
+        
+        
     </script>
 </body>
+
 </html>
