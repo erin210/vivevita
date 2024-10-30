@@ -56,7 +56,7 @@
                     <div class="time">
                         <span id="POST_DATE"></span>
                         <span>｜</span>
-                        <a href="article.html" id="Categories_Name"></a>
+                        <a href="article" id="Categories_Name"></a>
                     </div>
                     <!-- 標題 -->
                     <h1 id="POST_TITLE"></h1>
@@ -108,7 +108,7 @@
                         <div class="pic">
                             <img src="./img/cta-logo.svg" alt="">
                         </div>
-                        <a href="https://www.vive-vita.com/product_detail.html?id=c010001&category=c01">
+                        <a href="https://www.vive-vita.com/product_detail_c01_c010001">
                             <div class="button">
                                 <p>立即啟程，<span>邁向更健康的自己 ></span></p>
                             </div>
@@ -202,9 +202,10 @@
         var swiper = new Swiper('.swiper-blog', SwiperCondition_1);
 
         //抓url=====
-        var fullUrl = $(location).attr('href');
-        var lastSegment = fullUrl.split('/').pop().replace('.html', '');
-        var urlArray = lastSegment.split('_');
+        let urlPath = location.pathname.substring(1);
+        let urlArray = urlPath.split(".")[0].split("_");
+
+        // console.log(urlArray);
         
         var CategoryID = urlArray[2];//分類
         var ArticleID = urlArray[3];//文章ID
@@ -215,10 +216,19 @@
         $.getJSON("article.json", function (json) {
             var ALLCategories = json.Categories;
             var ARTICLE_RESULT = GetCategoryID(CategoryID, ArticleID);
+            
             var C_Index=Number(ARTICLE_RESULT.categoryIndex);//分類index
             var P_Index=Number(ARTICLE_RESULT.postIndex);//文章index
+
+            // console.log(C_Index,P_Index);
+            
+            
             var NewArticle =ARTICLE_RESULT.newSort;//排序好的文章
+            // console.log(NewArticle);
+            
             var THIS_HTML = NewArticle[P_Index].article_html;
+            // console.log(THIS_HTML);
+            
 
             $('#POST_DATE').text(formatDate(NewArticle[P_Index].Post_Date));
             $('#POST_TITLE').text(NewArticle[P_Index].article_Title);
@@ -251,6 +261,7 @@
             }
             $('#sideBarList li').on('click', function() {
                 const NN = $(this).index();
+                // console.log(NN);
                 
                 const targetPosition = $('#POST_INFO h2').eq(NN).offset().top - 20;
                 $('#sideBarList li').removeClass('active');
@@ -276,7 +287,7 @@
                                 <div class="time">
                                     <span>`+ formatDate(data.Post_Date) + `</span>
                                     <span>｜</span>
-                                    <span>BLOG</span>
+                                    <span>`+ALLCategories[C_Index].Categories_Name+`</span>
                                 </div>
                                 <p>`+ data.article_Title + `</p>
                             </a>
@@ -346,46 +357,46 @@
             }
 
             //切換上下頁
-            var POST_LEN = NewArticle.length;
-            var thisINDEX = P_Index;
-            console.log(POST_LEN);
+            // var POST_LEN = NewArticle.length;
+            // var thisINDEX = P_Index;
+            // console.log(POST_LEN);
             
 
-            if(POST_LEN<=1){
-                $('.arrow').hide();
-                $('#otherArticle').hide();
-            }
-            if (thisINDEX <= 0) {
-                $('#PREV').addClass('arrow-active');
-                event.preventDefault();
+            // if(POST_LEN<=1){
+            //     $('.arrow').hide();
+            //     $('#otherArticle').hide();
+            // }
+            // if (thisINDEX <= 0) {
+            //     $('#PREV').addClass('arrow-active');
+            //     event.preventDefault();
                 
-            } else if (thisINDEX >= POST_LEN - 1) {
-                $('#NEXT').addClass('arrow-active');
-            }
+            // } else if (thisINDEX >= POST_LEN - 1) {
+            //     $('#NEXT').addClass('arrow-active');
+            // }
 
-            $('#PREV').on('click', function () {
-                if (thisINDEX <= 0) {
-                    event.preventDefault();
-                } else {
-                    // 設參數
-                    const postId = thisINDEX - 1;
-                    const url = `article_detail_`+ALLCategories[C_Index].Categories_ID+`_`+NewArticle[postId].article_ID;
-                    $(this).removeClass('arrow-active');
-                    $(this).attr('href', url);
-                }
-            });
+            // $('#PREV').on('click', function () {
+            //     if (thisINDEX <= 0) {
+            //         event.preventDefault();
+            //     } else {
+            //         // 設參數
+            //         const postId = thisINDEX - 1;
+            //         const url = `article_detail_`+ALLCategories[C_Index].Categories_ID+`_`+NewArticle[postId].article_ID;
+            //         $(this).removeClass('arrow-active');
+            //         $(this).attr('href', url);
+            //     }
+            // });
 
-            $('#NEXT').on('click', function () {
-                if (thisINDEX >= POST_LEN - 1) {
-                    event.preventDefault();
-                } else {
-                    // 設參數
-                    const postId = thisINDEX + 1;
-                    const url = `article_detail_`+ALLCategories[C_Index].Categories_ID+`_`+NewArticle[postId].article_ID;
-                    $(this).removeClass('arrow-active');
-                    $(this).attr('href', url);
-                }
-            });
+            // $('#NEXT').on('click', function () {
+            //     if (thisINDEX >= POST_LEN - 1) {
+            //         event.preventDefault();
+            //     } else {
+            //         // 設參數
+            //         const postId = thisINDEX + 1;
+            //         const url = `article_detail_`+ALLCategories[C_Index].Categories_ID+`_`+NewArticle[postId].article_ID;
+            //         $(this).removeClass('arrow-active');
+            //         $(this).attr('href', url);
+            //     }
+            // });
         });
 
         // 格式化日期
@@ -404,7 +415,7 @@
             if ($(window).width() > 768) {
                 const sidebar = $('.articleArea .sidebar_list');
                 const sidebarNav = sidebar.find('nav');
-                const footerOffset = $('.arrow').offset().top;
+                // const footerOffset = $('.arrow').offset().top;
                 const scrollBottom = $(window).scrollTop() + $(window).height();
                 const navHeight = sidebarNav.outerHeight();
 
