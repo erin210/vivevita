@@ -199,8 +199,9 @@
         var fullUrl = $(location).attr('href');
         var lastSegment = fullUrl.split('/').pop().replace('.html', '');
         var urlArray = lastSegment.split('_');
+        
             
-        var PageID = urlArray[2];//分類
+        var PageID = Number(urlArray[2]);//分類
         // var ProductID = urlArray[3];//文章ID
 
         $.getJSON("recommend.json", function (json) {
@@ -216,9 +217,13 @@
 
             // 新的Array 
             var NewBlog = sortedBlogData;
-            const PageIndex = (NewBlog.findIndex(item => item.id === PageID))+1;
+            // console.log(NewBlog);
+            var PageIndex = NewBlog.findIndex(item => item.ID === PageID);
             // console.log(PageIndex,PageID);
             GetBlogPost(PageIndex);
+
+           
+            
 
             //印文章
             function GetBlogPost(e) { 
@@ -249,6 +254,8 @@
             
             //相關文章
             var NewPostList = NewBlog.map(item => item.ID == Number(PageID) ? null : item); 
+            // console.log(NewPostList);
+            
 
             NewPostList.forEach((data, index) => {
                 if (data !== null) {
