@@ -131,7 +131,6 @@
         $.getJSON("article.json", function (json) {
             var ALLCategories = json.Categories;
             console.log(ALLCategories);
-            
 
             ALLCategories.forEach((category, index) => {
                 //Tab List
@@ -159,17 +158,25 @@
 
                 //文章列表
                 NewArticle.forEach((item, i) => {
+                    var artlcleLink='';
+                    var linkTarge='_self';
+                    if(item.artlcle_link==""){
+                        artlcleLink='article_detail_'+category.Categories_ID+'_'+item.article_ID;
+                    }else{
+                        artlcleLink=item.artlcle_link;
+                        linkTarge='_blank';
+                    }
                     var ARTICLE_LIST = `<li class="article_card col-xl-4 col-md-6 col-12">
-                        <a href="article_detail_`+category.Categories_ID+`_`+item.article_ID+`">
-                                            <div class="article_img"><img src="`+ item.article_Main_IMG +`" alt=""></div>
-                                            <div class="article_Info">
-                                                <div class="article_type">
-                                                    `+ formatDate(item.Post_Date) +` <b>|</b><span>`+ category.Categories_Name +`</span>
+                                            <a href="`+artlcleLink+`" target="`+linkTarge+`">
+                                                <div class="article_img"><img src="`+ item.article_Main_IMG +`" alt=""></div>
+                                                <div class="article_Info">
+                                                    <div class="article_type">
+                                                        `+ formatDate(item.Post_Date) +` <b>|</b><span>`+ category.Categories_Name +`</span>
+                                                    </div>
+                                                    <h2>`+ item.article_Title +`</h2>
+                                                        <p>`+ item.article_Info +`</p>
+                                                    <h5>MORE &gt;</h5>
                                                 </div>
-                                                <h2>`+ item.article_Title +`</h2>
-                                                    <p>`+ item.article_Info +`</p>
-                                                <h5>MORE &gt;</h5>
-                                            </div>
                                             </a>
                                         </li>`;
                     ARTICLE_LIST_ALL += ARTICLE_LIST;
