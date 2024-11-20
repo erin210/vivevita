@@ -82,8 +82,6 @@
                                 <div class="article-info" id="POST_INFO">
 
                                 </div>
-
-                                <h5 id="POST_SOURCE"></h5>
                             </div>
                         </div>
                     </div>
@@ -168,8 +166,6 @@
 
             new WOW().init();
         });
-        //
-        
 
         //相關文章
         let SwiperCondition_1 = {
@@ -207,31 +203,18 @@
         //抓url=====
         let urlPath = location.pathname.substring(1);
         let urlArray = urlPath.split(".")[0].split("_");
-
-        // console.log(urlArray); 
         
         var CategoryID = urlArray[2];//分類
         var ArticleID = urlArray[3];//文章ID
 
-
-        
-
-        // console.log("cID",CategoryID);
-        // console.log("aID",ArticleID);
-
         $.getJSON("article.json", function (json) {
             var ALLCategories = json.Categories;
+            
             var ARTICLE_RESULT = GetCategoryID(CategoryID, ArticleID);
             
             var C_Index=Number(ARTICLE_RESULT.categoryIndex);//分類index
             var P_Index=Number(ARTICLE_RESULT.postIndex);//文章index
-
-            // console.log(C_Index,P_Index);
-            
-            
             var NewArticle =ARTICLE_RESULT.newSort;//排序好的文章
-            // console.log(NewArticle);
-            
             var THIS_HTML = NewArticle[P_Index].article_html;
             // console.log(THIS_HTML);
             
@@ -276,15 +259,23 @@
             });
 
             
-
             //相關文章
-            var NewPostList = NewArticle.map(item => item.article_ID == ArticleID ? null : item); 
+            var newArticleAll = ALLCategories.flatMap(category => category.article_List);//所有不分類文章
+            var sortArticleAll=sortArticlesByDate(newArticleAll);//文章排序
+            var NewPostList = sortArticleAll.filter(item =>item.article_ID !== ArticleID && item.artlcle_link === "");//排除本頁文章ID＆非外連文章
 
             NewPostList.forEach((data) => {
+                const newCategoryID=data.article_ID.slice(0, 3);//從商品ID抓分類ID
+                const newCategoryName = ALLCategories
+                    .filter(category => category.Categories_ID === newCategoryID)
+                    .map(category => category.Categories_Name)
+                    .join('');
+                    console.log(newCategoryName);
+                    
                 if (data !== null) {
                     const OTHER_POST_HTML=`
                         <div class="swiper-slide">
-                            <a href="article_detail_`+CategoryID+`_`+data.article_ID+`" class="index-blog">
+                            <a href="article_detail_`+newCategoryID+`_`+data.article_ID+`" class="index-blog">
                                 <div class="blogbox blogbox2">
                                     <div class="imgbox">
                                         <img src="`+data.article_Main_IMG+`" alt="" title="">
@@ -293,7 +284,7 @@
                                 <div class="time">
                                     <span>`+ formatDate(data.Post_Date) + `</span>
                                     <span>｜</span>
-                                    <span>`+ALLCategories[C_Index].Categories_Name+`</span>
+                                    <span>`+newCategoryName+`</span>
                                 </div>
                                 <p>`+ data.article_Title + `</p>
                             </a>
@@ -309,28 +300,23 @@
                 for (let i = 0; i < json.Categories.length; i++) {
                     if (json.Categories[i].Categories_ID === cID) {
                         
+                        // 取得文章資料
                         var articleDATA = ALLCategories[i].article_List;
-                        for (let p = 0; p < articleDATA.length; p++) {
-                            
-                            // 排序 
-                            var sortedArticleData = [...articleDATA].sort(compareDate);
-                            function compareDate(a, b) {
-                                let dateA = new Date(a.Post_Date);
-                                let dateB = new Date(b.Post_Date);
-                                return dateB - dateA;
-                            }
 
-                            // 新的Array(新到舊)
-                            const newSort = sortedArticleData;
-                            
-                            if (newSort[p].article_ID === pID) {
+                        // 使用排序函式
+                        var sortedArticleData = sortArticlesByDate(articleDATA);
+
+                        // 遍歷排序後的資料
+                        for (let p = 0; p < sortedArticleData.length; p++) {
+                            if (sortedArticleData[p].article_ID === pID) {
                                 return { 
                                     categoryIndex: i, 
                                     postIndex: p, 
-                                    newSort: newSort 
+                                    newSort: sortedArticleData 
                                 };
                             }
                         }
+
                         return { 
                             categoryIndex: i, 
                             postIndex: null, 
@@ -343,6 +329,15 @@
                     postIndex: null, 
                     newSort: null 
                 };
+            }
+
+            //文章排序
+            function sortArticlesByDate(articleDATA) {
+                return [...articleDATA].sort((a, b) => {
+                    let dateA = new Date(a.Post_Date);
+                    let dateB = new Date(b.Post_Date);
+                    return dateB - dateA; // 從新到舊排序
+                });
             }
 
             // 格式化日期
@@ -362,47 +357,12 @@
                 return html = decodedHtml
             }
 
-            //切換上下頁
-            // var POST_LEN = NewArticle.length;
-            // var thisINDEX = P_Index;
-            // console.log(POST_LEN);
-            
-
-            // if(POST_LEN<=1){
-            //     $('.arrow').hide();
-            //     $('#otherArticle').hide();
-            // }
-            // if (thisINDEX <= 0) {
-            //     $('#PREV').addClass('arrow-active');
-            //     event.preventDefault();
-                
-            // } else if (thisINDEX >= POST_LEN - 1) {
-            //     $('#NEXT').addClass('arrow-active');
-            // }
-
-            // $('#PREV').on('click', function () {
-            //     if (thisINDEX <= 0) {
-            //         event.preventDefault();
-            //     } else {
-            //         // 設參數
-            //         const postId = thisINDEX - 1;
-            //         const url = `article_detail_`+ALLCategories[C_Index].Categories_ID+`_`+NewArticle[postId].article_ID;
-            //         $(this).removeClass('arrow-active');
-            //         $(this).attr('href', url);
-            //     }
-            // });
-
-            // $('#NEXT').on('click', function () {
-            //     if (thisINDEX >= POST_LEN - 1) {
-            //         event.preventDefault();
-            //     } else {
-            //         // 設參數
-            //         const postId = thisINDEX + 1;
-            //         const url = `article_detail_`+ALLCategories[C_Index].Categories_ID+`_`+NewArticle[postId].article_ID;
-            //         $(this).removeClass('arrow-active');
-            //         $(this).attr('href', url);
-            //     }
-            // });
+            //文章只有一篇：相關文章區塊隱藏
+            var POST_LEN = sortArticleAll.length;
+            if(POST_LEN<=1){
+                $('.arrow').hide();
+                $('#otherArticle').hide();
+            }
         });
 
         // 格式化日期
@@ -467,9 +427,6 @@
                     }
                 }, 100); 
             });
-
-        
-        
     </script>
 </body>
 
