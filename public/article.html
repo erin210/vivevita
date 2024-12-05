@@ -128,13 +128,20 @@
             return false;
         });
 
+        //抓url=====
+        let urlPath = location.hash ? location.hash.substring(1) : '';
+
+        console.log(urlPath);
+        
+
         $.getJSON("article.json", function (json) {
             var ALLCategories = json.Categories;
-            console.log(ALLCategories);
+            // console.log(ALLCategories);
 
             ALLCategories.forEach((category, index) => {
                 //Tab List
                 var TAB_LIST = '<li rel="tab' + (index + 1) + '"data-menu="'+ category.Categories_Name + '">' + category.Categories_Name + '</li>';
+                
                 //article area
                 var ARTICLE_CON = `<div id="tab` + (index + 1) + `" class="tab_content"><ul class="articleList row"></ul></div>`;
 
@@ -200,11 +207,14 @@
                     const MenuName=$(this).text();
                     $('title').html(MenuName+' | Anthogenol®月光寶盒');
                 });
-
-            //切換分類
-            $("ul.article_tab li:first").addClass("active");
+            
+            //分類
+            let tabIndex = urlPath!=='' ? urlPath : 0;
+            $('.article_tab li').removeClass('active');
+            $('.article_tab li').eq(tabIndex).addClass('active');
             $(".tab_content").hide();
-            $(".tab_content:first").show();
+            $(".tab_content").eq(tabIndex).show();
+            
 
             $("ul.article_tab li a").on("click", function (event) {
                 event.preventDefault();
@@ -217,10 +227,12 @@
                 $("#" + activeTab).fadeIn();
                 $("ul.article_tab li").removeClass("active");
                 $(this).addClass("active");
+                // 去除網址中的#...
+                if (window.location.hash) {
+                    history.replaceState(null, null, window.location.pathname + window.location.search);
+                }
             });
         });
-        //tab切換
-        // $(".tab_content").hide(); $(".tab_content:first").show(); $("ul.tabs li").click(function () { $(".tab_content").hide(); var activeTab = $(this).attr("rel"); $("#" + activeTab).fadeIn(); $("ul.tabs li").removeClass("active"); $(this).addClass("active"); $(".tab_drawer_heading").removeClass("d_active"); $(".tab_drawer_heading[rel^='" + activeTab + "']").addClass("d_active") }); $('ul.tabs li').last().addClass("tab_last");
     </script>
 
     <script>

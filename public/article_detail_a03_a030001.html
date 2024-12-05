@@ -80,7 +80,6 @@
                             <!-- 內文 -->
                             <div class="article-content" id="POST_CONTENT">
                                 <div class="article-info" id="POST_INFO">
-
                                 </div>
                             </div>
                         </div>
@@ -202,6 +201,7 @@
 
         //抓url=====
         let urlPath = location.pathname.substring(1);
+        
         let urlArray = urlPath.split(".")[0].split("_");
         
         var CategoryID = urlArray[2];//分類
@@ -216,46 +216,52 @@
             var P_Index=Number(ARTICLE_RESULT.postIndex);//文章index
             var NewArticle =ARTICLE_RESULT.newSort;//排序好的文章
             var THIS_HTML = NewArticle[P_Index].article_html;
-            // console.log(THIS_HTML);
-            
 
             $('#POST_DATE').text(formatDate(NewArticle[P_Index].Post_Date));
             $('#POST_TITLE').text(NewArticle[P_Index].article_Title);
-            $('#Categories_Name').text(ALLCategories[C_Index].Categories_Name);
+            $('#Categories_Name').text(ALLCategories[C_Index].Categories_Name).attr('href','article#'+C_Index);
             $('title').html(NewArticle[P_Index].article_Title + ' | Anthogenol®月光寶盒');
             
             $('#POST_INFO').html(base64toHTML(THIS_HTML));
 
             //找H2
-            var sidebarList=[]
+            var sidebarList=[];//目錄list名稱
+            var siderListLINK=[];//目錄list對應錨點
             const h2TXT=$('#POST_INFO h2').eq(0).text();
             
             for (let i = 0; i < $('#POST_INFO h2').length; i++) {
                 const item = $('#POST_INFO h2').eq(i);
                 const h2TXT=item.text();
-                sidebarList.push(h2TXT)
+                sidebarList.push(h2TXT);
+                let h2ID='';
+                
+                if (item.attr('id')) {
+                    h2ID = item.attr('id');
+                    siderListLINK.push(h2ID);
+                } else {
+                    h2ID = 'section' + (i + 1); 
+                    item.attr('id', h2ID); 
+                    siderListLINK.push(h2ID);
+                }
             }
             
-            sidebarList.forEach((item, index) => {
-                const sidebarList=$('#sideBarList').append('<li><a href="#section'+(index+1)+'">'+item+'</li>')
+            //印目錄
+            sidebarList.forEach((item,index) => {
+                const id = siderListLINK[index];
+                const sidebarList=$('#sideBarList').append('<li><a href="#'+id+'" data-target="'+id+'">'+item+'</a></li>');
             });
-
             $('#sideBarList li:first-child').addClass('active');
 
-            for (let i = 0; i < $('#POST_INFO h2').length; i++) {
-                const item = $('#POST_INFO h2').eq(i);
-                item.attr('id', 'section'+(i+1));
-
-            }
-            
-            $('#sideBarList li').on('click', function() {
-                const NN = $(this).index();
-                const targetPosition = $('#POST_INFO h2').eq(NN).offset().top - 20;
-                $('#sideBarList li').removeClass('active');
-                $('#sideBarList li').eq(NN+1).addClass('active');
+            //點擊目錄
+            $('#sideBarList li a').on('click', function(event) {
+                event.preventDefault();
+                const listID = $(this).data('target');
+                const targetPosition = $("#"+listID).offset().top - 20;
                 $('html, body').animate({
                     scrollTop: targetPosition
                 }, 500);
+
+                window.history.pushState(null, null, `#${listID}`);//網址加＃
             });
 
             
@@ -270,7 +276,6 @@
                     .filter(category => category.Categories_ID === newCategoryID)
                     .map(category => category.Categories_Name)
                     .join('');
-                    console.log(newCategoryName);
                     
                 if (data !== null) {
                     const OTHER_POST_HTML=`
@@ -375,58 +380,53 @@
         }
 
         $("footer").load("./component/footer_con.html");
-
         
-        
-            // 選單 sticky 和 Scrollspy 效果
-            $(window).on('scroll', function() {
-                if ($(window).width() > 768) {
-                    const sidebar = $('.articleArea .sidebar_list');
-                    const sidebarNav = sidebar.find('nav');
-                    // const footerOffset = $('.arrow').offset().top;
-                    const scrollBottom = $(window).scrollTop() + $(window).height();
-                    const navHeight = sidebarNav.outerHeight();
+        // 選單 sticky 和 Scrollspy 效果
+        $(window).on('scroll', function() {
+            if ($(window).width() > 768) {
+                const sidebar = $('.articleArea .sidebar_list');
+                const sidebarNav = sidebar.find('nav');
+                // const footerOffset = $('.arrow').offset().top;
+                const scrollBottom = $(window).scrollTop() + $(window).height();
+                const navHeight = sidebarNav.outerHeight();
 
-                    sidebar.css('height', navHeight + 'px');//選單高度
-                    // 偵測 h2
-                    $('h2').each(function() {
-                        const sectionTop = $(this).offset().top - 30;
-                        const sectionBottom = sectionTop + $(this).outerHeight();
-                        const previousP = $(this).prev('p');
+                sidebar.css('height', navHeight + 'px');//選單高度
 
-                        // 檢查 h2 範圍
-                        if ($(window).scrollTop() >= sectionTop || (previousP.length && $(window).scrollTop() >= previousP.offset().top - 20)) {
-                            const id = $(this).attr('id');
-                            sidebarNav.find('a').parent('li').removeClass('active');
-                            sidebarNav.find(`a[href="#${id}"]`).parent('li').addClass('active');
-                        }
-                    });
-                }
-            });
-            $(window).on('load', function() {
-                setTimeout(function() {
-                    const hash = window.location.hash;
-                    const sectionNumber = hash.match(/#section(\d+)/);
+                // 偵測 h2
+                $('h2').each(function() {
+                    const sectionTop = $(this).offset().top - 30;
+                    const sectionBottom = sectionTop + $(this).outerHeight();
+                    const previousP = $(this).prev('p');
 
-                    if (sectionNumber) {
-                        // console.log("Matched section number:", sectionNumber[1]);
-                        const targetElement = $(`#section${sectionNumber[1]}`);
-
-                        if (targetElement.length) {
-                            const initialTargetPosition = targetElement.offset().top - 20;
-                            console.log("Target position:", initialTargetPosition);
-
-                            $('html, body').animate({
-                                scrollTop: initialTargetPosition
-                            }, 500);
-                        } else {
-                            console.warn(`Element #section${sectionNumber[1]} 不存在`);
-                        }
-                    } else {
-                        console.warn("未找到 section 數字");
+                    // 檢查 h2 範圍
+                    if ($(window).scrollTop() >= sectionTop || (previousP.length && $(window).scrollTop() >= previousP.offset().top - 30)) {
+                        const id = $(this).attr('id');
+                        sidebarNav.find('a').parent('li').removeClass('active');
+                        sidebarNav.find(`a[href="#${id}"]`).parent('li').addClass('active');
+                        
                     }
-                }, 100); 
-            });
+                });
+            }
+        });
+        $(window).on('load', function() {
+            setTimeout(function() {
+                const hash = window.location.hash.substring(1);
+                if (hash) {
+                    const targetElement = $(`#${hash}`);
+                    if (targetElement.length) {
+                        const initialTargetPosition = targetElement.offset().top - 20;
+
+                        $('html, body').animate({
+                            scrollTop: initialTargetPosition
+                        }, 500);
+                    } else {
+                        console.warn(`#${hash} 不存在`);
+                    }
+                } else {
+                    console.warn("未找到錨點ID");
+                }
+            }, 100); 
+        });
     </script>
 </body>
 
